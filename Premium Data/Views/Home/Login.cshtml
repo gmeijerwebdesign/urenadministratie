@@ -1,0 +1,94 @@
+﻿@model Premium_Data.tbl_Medewerkers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cyclus | Uren-Online</title>
+
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <script src="~/Scripts/jquery.metisMenu.js"></script>
+
+    <script src="~/Scripts/jquery.slimscroll.js"></script>
+
+    <script src="~/Scripts/datatables.min.js"></script>
+    <!-- Custom and plugin javascript -->
+
+    <script src="~/Scripts/inspinia.js"></script>
+
+    <script src="~/Scripts/pace.min.js"></script>
+
+</head>
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name"><img src="~/Images/Clogo.png" width="200" /></h1>
+
+            </div>
+            <h3>Cyclus | Uren-Online</h3>
+
+            <p>Inlogscherm</p>
+            <form class="m-t" role="form" method="post" action="@Url.Action("Login","Home")">
+                @if (@ViewBag.error != null) {
+                <div class="alert alert-danger alert-dismissable">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    @ViewBag.error
+                </div> 
+                }
+                
+                
+                <div class="form-group">
+                    @Html.EditorFor(model => model.INLOG_GEBRUIKERSNAAM, new { htmlAttributes = new { placeholder = "Gebruikersnaam", required = "required",@class="form-control" } })
+                    @Html.ValidationMessageFor(model => model.INLOG_GEBRUIKERSNAAM, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+
+                    <input type="password" name="INLOG_WACHTWOORD" required placeholder="Wachtwoord" data-toggle="password" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.INLOG_WACHTWOORD, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.CheckBoxFor(model => model.INLOG_ACTIEF)
+                    @Html.Label(" Aangemeld blijven")
+                </div>
+                <div class="form-group">
+                    <a href="@Url.Action("ForgetPassword","Home")">Wachtwoord vergeten?</a>
+                </div>
+                <input type="submit" class="btn btn-outline btn-success block full-width m-b" name="Inloggen" value="Inloggen" />
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+
+
+</body>
+
+</html>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+<script type="text/javascript">
+    $("#password").password('toggle');
+</script>

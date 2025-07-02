@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4b25b58e1608466f97fb363eccc2b7cd" Name="Diagram1">
+        <EntityTypeShape EntityType="Cyclus_DataModel.tbl_Instellingen_Periodes" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Cyclus_DataModel.tbl_Medewerkers" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Cyclus_DataModel.tbl_Medewerkers_Info" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Cyclus_DataModel.tbl_Medewerkers_Uren" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Cyclus_DataModel.tbl_Medewerkers_Urencodes" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Cyclus_DataModel.tbl_Medewerkers_Weken" Width="1.5" PointX="8.75" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

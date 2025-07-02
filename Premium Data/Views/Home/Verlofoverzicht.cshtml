@@ -1,0 +1,68 @@
+﻿@model Premium_Data.tbl_Medewerkers_Uren
+
+@{
+    ViewBag.Title = "Verlofoverzicht";
+}
+<style>
+    .ibox-content {
+        background-color: #EEEEEE;
+        padding:20px 50px 100px 50px;
+    }
+</style>
+<div class="ibox-content">
+    <form id="form" action="@Url.Action("AddWeek","Home")" method="post" class="wizard-big">
+        <h1 style="text-align:center">Add Week data</h1>
+        <br />
+        <fieldset>
+           
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Week *</label>
+                        <input id="PERIODE_WEEK" name="PERIODE_WEEK" type="text" class="form-control required">
+                    </div>
+                    <div class="form-group">
+                        <label>DATUM *</label>
+                       
+                        @Html.EditorFor(model => model.DATUM, new { htmlAttributes = new { @class = "form-control", required="required" } })
+                    </div>
+                    <div class="form-group">
+                        <label>Dag *</label>
+                        <input id="Calculated" name="Calculated" type="text" class="form-control required">
+                    </div>
+                    <div class="form-group">
+                        <label>Urencode *</label>
+                        <input id="PROJECT_ID" name="PROJECT_ID" type="text" class="form-control required">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Omschrijving *</label>
+                        <input id="PROJECT_OMSCHRIJVING" name="PROJECT_OMSCHRIJVING" type="text" class="form-control required">
+                    </div>
+                    <div class="form-group">
+                        <label>Start *</label>
+                        <input id="START" name="START" type="text" class="form-control required">
+                    </div>
+                    <div class="form-group">
+                        <label>Eind *</label>
+                        <input id="Eind" name="Eind" type="text" class="form-control required">
+                    </div>
+                    <div class="form-group">
+                        <label>Uren *</label>
+                        <input id="TOTAAL_OVERUREN" name="TOTAAL_OVERUREN" type="text" class="form-control required">
+                    </div>
+                </div>
+              <div class="col-lg-2">
+                  <input type="submit" name="Save" class="btn btn-success" />
+              </div>
+            </div>
+        </fieldset>
+
+
+    </form>
+
+    </div>
+
+
+

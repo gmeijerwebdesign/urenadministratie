@@ -1,0 +1,810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Cyclus_DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Instellingen_Periodes">
+          <Key>
+            <PropertyRef Name="VOLGNUMMER" />
+          </Key>
+          <Property Name="VOLGNUMMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATUM" Type="datetime" />
+          <Property Name="DAG" Type="nvarchar" MaxLength="10" />
+          <Property Name="WERKDAG" Type="bit" />
+          <Property Name="FEESTDAG" Type="bit" />
+          <Property Name="TYPE" Type="nvarchar" MaxLength="255" />
+          <Property Name="WEEK" Type="int" />
+          <Property Name="OMSCHRIJVING" Type="nvarchar" MaxLength="255" />
+          <Property Name="WEEKNUMMER" Type="nvarchar" MaxLength="255" />
+          <Property Name="WEEK_EVEN_ONEVEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="JAAR" Type="nvarchar" MaxLength="4" />
+          <Property Name="PERIODE_WEEK" Type="nvarchar" MaxLength="7" />
+          <Property Name="PERIODE_MAAND" Type="nvarchar" MaxLength="7" />
+          <Property Name="PERIODE_KWARTAAL" Type="nvarchar" MaxLength="20" />
+          <Property Name="PROVISIE_PERIODE" Type="nvarchar" MaxLength="7" />
+          <Property Name="OPMERKING" Type="nvarchar(max)" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Medewerkers">
+          <Key>
+            <PropertyRef Name="VOLGNUMMER" />
+          </Key>
+          <Property Name="VOLGNUMMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MEDEWERKER_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="MEDEWERKER_STATUS" Type="nvarchar" MaxLength="50" />
+          <Property Name="MEDEWERKER_TYPE" Type="nvarchar" MaxLength="50" />
+          <Property Name="MEDEWERKER_ORGANISATIE" Type="nvarchar" MaxLength="100" />
+          <Property Name="DATUM_IN_DIENST" Type="datetime" />
+          <Property Name="DATUM_UIT_DIENST" Type="datetime" />
+          <Property Name="MEDEWERKER_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="VOORLETTERS" Type="nvarchar" MaxLength="50" />
+          <Property Name="VOORNAAM" Type="nvarchar" MaxLength="50" />
+          <Property Name="TUSSENVOEGSEL" Type="nvarchar" MaxLength="50" />
+          <Property Name="ACHTERNAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="GESLACHT" Type="nvarchar" MaxLength="50" />
+          <Property Name="E_MAILADRES_ZAKELIJK" Type="nvarchar" MaxLength="100" />
+          <Property Name="E_MAILADRES_PRIVE" Type="nvarchar" MaxLength="100" />
+          <Property Name="GEBOORTEDATUM" Type="datetime" />
+          <Property Name="OPMERKINGEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="FUNCTIENAAM" Type="nvarchar" MaxLength="50" />
+          <Property Name="CONTRACTUREN_WEEK" Type="float" />
+          <Property Name="AFDELING" Type="nvarchar" MaxLength="100" />
+          <Property Name="MANAGER" Type="nvarchar" MaxLength="100" />
+          <Property Name="MANAGER_ID" Type="nvarchar" MaxLength="15" />
+          <Property Name="BESTAND_01" Type="nvarchar" MaxLength="255" />
+          <Property Name="BESTAND_02" Type="nvarchar" MaxLength="255" />
+          <Property Name="INGEVOERD_DATUM" Type="datetime" />
+          <Property Name="INGEVOERD_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="INGEVOERD_COMPUTER" Type="nvarchar" MaxLength="100" />
+          <Property Name="INGEVOERD_TIJD" Type="time" Precision="0" />
+          <Property Name="INGEVOERD_CHECK" Type="bit" />
+          <Property Name="GEWIJZIGD_DATUM" Type="datetime" />
+          <Property Name="GEWIJZIGD_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="GEWIJZIGD_COMPUTER" Type="nvarchar" MaxLength="100" />
+          <Property Name="GEWIJZIGD_TIJD" Type="time" Precision="0" />
+          <Property Name="GEWIJZIGD_CHECK" Type="bit" />
+          <Property Name="VERREKENEN" Type="bit" />
+          <Property Name="CHECKED" Type="bit" />
+          <Property Name="ZOEKVELD" Type="nvarchar" MaxLength="255" />
+          <Property Name="VERWIJDEREN" Type="bit" />
+          <Property Name="INDEX" Type="nvarchar" MaxLength="255" />
+          <Property Name="INLOG_ACTIEF" Type="bit" />
+          <Property Name="INLOG_GEBRUIKERSNAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="INLOG_WACHTWOORD" Type="nvarchar" MaxLength="100" />
+          <Property Name="INLOG_LEVEL" Type="int" />
+          <Property Name="OVERUREN_SCHRIJVEN" Type="bit" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Medewerkers_Info">
+          <Key>
+            <PropertyRef Name="VOLGNUMMER" />
+          </Key>
+          <Property Name="VOLGNUMMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MEDEWERKER_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="MEDEWERKER_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="AFDELING" Type="nvarchar" MaxLength="100" />
+          <Property Name="FUNCTIENAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="MANAGER_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="VOORKEUR_OVERUREN" Type="nvarchar" MaxLength="20" />
+          <Property Name="JAAR_VORIG" Type="nvarchar" MaxLength="4" />
+          <Property Name="JAAR_HUIDIG" Type="nvarchar" MaxLength="4" />
+          <Property Name="BIJGEWERKT_TOT_DATUM" Type="datetime" />
+          <Property Name="VERLOF_OPBOUW_BASIS_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_BOVENWETTELIJK_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_ADV_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_COMPENSATIE_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_TEGOED_INHAALUREN_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_TEGOED_VERLOF_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_BIJGEKOCHT_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_AFWIJKEND_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_1_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_2_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_3_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_4_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_OPGEBOUWD_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_OPGENOMEN_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_UITBETAALD_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_SALDO_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPGEBOUWD_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPGENOMEN_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_SALDO_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_BASIS_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_BOVENWETTELIJK_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_ADV_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_COMPENSATIE_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_TEGOED_INHAALUREN_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_TEGOED_VERLOF_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_BIJGEKOCHT_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_AFWIJKEND_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_1_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_2_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_3_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_4_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_OPGENOMEN_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_UITBETAALD_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_SALDO_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPGENOMEN_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_SALDO_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="BESTAND_01" Type="nvarchar" MaxLength="255" />
+          <Property Name="BESTAND_02" Type="nvarchar" MaxLength="255" />
+          <Property Name="OPMERKINGEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="INGEVOERD_DATUM" Type="datetime" />
+          <Property Name="INGEVOERD_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="INGEVOERD_COMPUTER" Type="nvarchar" MaxLength="100" />
+          <Property Name="INGEVOERD_TIJD" Type="time" Precision="0" />
+          <Property Name="INGEVOERD_CHECK" Type="bit" />
+          <Property Name="GEWIJZIGD_DATUM" Type="datetime" />
+          <Property Name="GEWIJZIGD_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="GEWIJZIGD_COMPUTER" Type="nvarchar" MaxLength="100" />
+          <Property Name="GEWIJZIGD_TIJD" Type="time" Precision="0" />
+          <Property Name="GEWIJZIGD_CHECK" Type="bit" />
+          <Property Name="CHECKED" Type="bit" />
+          <Property Name="VERWIJDEREN" Type="bit" />
+          <Property Name="INDEX" Type="nvarchar" MaxLength="255" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Medewerkers_Uren">
+          <Key>
+            <PropertyRef Name="VOLGNUMMER" />
+          </Key>
+          <Property Name="VOLGNUMMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MEDEWERKER_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="MEDEWERKER_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="MEDEWERKER_ORGANISATIE" Type="nvarchar" MaxLength="100" />
+          <Property Name="MANAGER_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="MANAGER_NAAM" Type="nvarchar" MaxLength="20" />
+          <Property Name="JAAR" Type="nvarchar" MaxLength="4" />
+          <Property Name="RECORD_STATUS" Type="nvarchar" MaxLength="50" />
+          <Property Name="MEDEWERKER_TYPE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DATUM" Type="datetime" />
+          <Property Name="DAG" Type="datetime" />
+          <Property Name="PERIODE_WEEK" Type="nvarchar" MaxLength="7" />
+          <Property Name="START" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="EINDE" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="UREN" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="OVERUREN_CHECK" Type="bit" />
+          <Property Name="UREN_NORMAAL" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="UREN_OVERUREN" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="PROJECT_ID" Type="nvarchar" MaxLength="15" />
+          <Property Name="PROJECT_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="OPMERKINGEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="OVERUREN_UITBETALEN" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="HERKOMST" Type="nvarchar" MaxLength="50" />
+          <Property Name="VOLGORDE" Type="nvarchar" MaxLength="20" />
+          <Property Name="INGEVOERD_DATUM" Type="datetime" />
+          <Property Name="INGEVOERD_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="INGEVOERD_TIJD" Type="time" Precision="0" />
+          <Property Name="INGEVOERD_CHECK" Type="bit" />
+          <Property Name="GEWIJZIGD_DATUM" Type="datetime" />
+          <Property Name="GEWIJZIGD_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="GEWIJZIGD_TIJD" Type="time" Precision="0" />
+          <Property Name="GEWIJZIGD_CHECK" Type="bit" />
+          <Property Name="CHECKED" Type="bit" />
+          <Property Name="VERWIJDEREN" Type="bit" />
+          <Property Name="INDEX" Type="nvarchar" MaxLength="255" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Medewerkers_Urencodes">
+          <Key>
+            <PropertyRef Name="VOLGNUMMER" />
+          </Key>
+          <Property Name="VOLGNUMMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MEDEWERKER_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="PROJECT_ID" Type="nvarchar" MaxLength="15" />
+          <Property Name="PROJECT_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="OPMERKINGEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="INGEVOERD_DATUM" Type="datetime" />
+          <Property Name="INGEVOERD_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="INGEVOERD_COMPUTER" Type="nvarchar" MaxLength="100" />
+          <Property Name="INGEVOERD_TIJD" Type="time" Precision="0" />
+          <Property Name="INGEVOERD_CHECK" Type="bit" />
+          <Property Name="GEWIJZIGD_DATUM" Type="datetime" />
+          <Property Name="GEWIJZIGD_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="GEWIJZIGD_COMPUTER" Type="nvarchar" MaxLength="100" />
+          <Property Name="GEWIJZIGD_TIJD" Type="time" Precision="0" />
+          <Property Name="GEWIJZIGD_CHECK" Type="bit" />
+          <Property Name="CHECKED" Type="bit" />
+          <Property Name="VERWIJDEREN" Type="bit" />
+          <Property Name="INDEX" Type="nvarchar" MaxLength="255" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Medewerkers_Weken">
+          <Key>
+            <PropertyRef Name="VOLGNUMMER" />
+          </Key>
+          <Property Name="VOLGNUMMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MEDEWERKER_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="MEDEWERKER_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="MEDEWERKER_ORGANISATIE" Type="nvarchar" MaxLength="100" />
+          <Property Name="WEEK_STATUS" Type="nvarchar" MaxLength="50" />
+          <Property Name="WEEK_SOORT" Type="nvarchar" MaxLength="7" />
+          <Property Name="WEEK_BUDGET" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="PERIODE_WEEK" Type="nvarchar" MaxLength="7" />
+          <Property Name="JAAR" Type="nvarchar" MaxLength="4" />
+          <Property Name="TOTAAL_UREN" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="TOTAAL_OVERUREN" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="TOTAAL_UREN_OVERUREN" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="MANAGER_ID" Type="nvarchar" MaxLength="15" />
+          <Property Name="MANAGER_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="GOEDGEKEURD_CHECK" Type="bit" />
+          <Property Name="GOEDGEKEURD_DATUM" Type="datetime" />
+          <Property Name="GOEDGEKEURD_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="GOEDGEKEURD_TIJD" Type="time" Precision="0" />
+          <Property Name="OPMERKINGEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="INGEVOERD_DATUM" Type="datetime" />
+          <Property Name="INGEVOERD_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="INGEVOERD_TIJD" Type="time" Precision="0" />
+          <Property Name="GEWIJZIGD_DATUM" Type="datetime" />
+          <Property Name="GEWIJZIGD_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="GEWIJZIGD_TIJD" Type="time" Precision="0" />
+          <Property Name="EMAIL_ONDERWERP" Type="nvarchar" MaxLength="100" />
+          <Property Name="EMAIL_DATUM" Type="datetime" />
+          <Property Name="EMAIL_TIJD" Type="time" Precision="0" />
+          <Property Name="EMAIL_NAAM" Type="nvarchar" MaxLength="100" />
+          <Property Name="EMAIL_CHECK" Type="bit" />
+          <Property Name="GEWIJZIGD_CHECK" Type="bit" />
+          <Property Name="CHECKED" Type="bit" />
+          <Property Name="VERWIJDEREN" Type="bit" />
+          <Property Name="INDEX" Type="nvarchar" MaxLength="255" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Cyclus_DataModelStoreContainer">
+          <EntitySet Name="tbl_Instellingen_Periodes" EntityType="Self.tbl_Instellingen_Periodes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Medewerkers" EntityType="Self.tbl_Medewerkers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Medewerkers_Info" EntityType="Self.tbl_Medewerkers_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Medewerkers_Uren" EntityType="Self.tbl_Medewerkers_Uren" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Medewerkers_Urencodes" EntityType="Self.tbl_Medewerkers_Urencodes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Medewerkers_Weken" EntityType="Self.tbl_Medewerkers_Weken" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Cyclus_DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Cyclus_DataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Instellingen_Periodes" EntityType="Cyclus_DataModel.tbl_Instellingen_Periodes" />
+          <EntitySet Name="tbl_Medewerkers" EntityType="Cyclus_DataModel.tbl_Medewerkers" />
+          <EntitySet Name="tbl_Medewerkers_Info" EntityType="Cyclus_DataModel.tbl_Medewerkers_Info" />
+          <EntitySet Name="tbl_Medewerkers_Uren" EntityType="Cyclus_DataModel.tbl_Medewerkers_Uren" />
+          <EntitySet Name="tbl_Medewerkers_Urencodes" EntityType="Cyclus_DataModel.tbl_Medewerkers_Urencodes" />
+          <EntitySet Name="tbl_Medewerkers_Weken" EntityType="Cyclus_DataModel.tbl_Medewerkers_Weken" />
+        </EntityContainer>
+        <EntityType Name="tbl_Instellingen_Periodes">
+          <Key>
+            <PropertyRef Name="VOLGNUMMER" />
+          </Key>
+          <Property Name="VOLGNUMMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATUM" Type="DateTime" Precision="3" />
+          <Property Name="DAG" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="WERKDAG" Type="Boolean" />
+          <Property Name="FEESTDAG" Type="Boolean" />
+          <Property Name="TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="WEEK" Type="Int32" />
+          <Property Name="OMSCHRIJVING" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="WEEKNUMMER" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="WEEK_EVEN_ONEVEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="JAAR" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="PERIODE_WEEK" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="PERIODE_MAAND" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="PERIODE_KWARTAAL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PROVISIE_PERIODE" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="OPMERKING" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="tbl_Medewerkers">
+          <Key>
+            <PropertyRef Name="VOLGNUMMER" />
+          </Key>
+          <Property Name="VOLGNUMMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MEDEWERKER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MEDEWERKER_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MEDEWERKER_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MEDEWERKER_ORGANISATIE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DATUM_IN_DIENST" Type="DateTime" Precision="3" />
+          <Property Name="DATUM_UIT_DIENST" Type="DateTime" Precision="3" />
+          <Property Name="MEDEWERKER_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VOORLETTERS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VOORNAAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TUSSENVOEGSEL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ACHTERNAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GESLACHT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="E_MAILADRES_ZAKELIJK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="E_MAILADRES_PRIVE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GEBOORTEDATUM" Type="DateTime" Precision="3" />
+          <Property Name="OPMERKINGEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FUNCTIENAAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONTRACTUREN_WEEK" Type="Double" />
+          <Property Name="AFDELING" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MANAGER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MANAGER_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="BESTAND_01" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BESTAND_02" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="INGEVOERD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_COMPUTER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_TIJD" Type="Time" Precision="0" />
+          <Property Name="INGEVOERD_CHECK" Type="Boolean" />
+          <Property Name="GEWIJZIGD_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="GEWIJZIGD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GEWIJZIGD_COMPUTER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GEWIJZIGD_TIJD" Type="Time" Precision="0" />
+          <Property Name="GEWIJZIGD_CHECK" Type="Boolean" />
+          <Property Name="VERREKENEN" Type="Boolean" />
+          <Property Name="CHECKED" Type="Boolean" />
+          <Property Name="ZOEKVELD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="VERWIJDEREN" Type="Boolean" />
+          <Property Name="INDEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="INLOG_ACTIEF" Type="Boolean" />
+          <Property Name="INLOG_GEBRUIKERSNAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INLOG_WACHTWOORD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INLOG_LEVEL" Type="Int32" />
+          <Property Name="OVERUREN_SCHRIJVEN" Type="Boolean" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="tbl_Medewerkers_Info">
+          <Key>
+            <PropertyRef Name="VOLGNUMMER" />
+          </Key>
+          <Property Name="VOLGNUMMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MEDEWERKER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MEDEWERKER_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AFDELING" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FUNCTIENAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MANAGER_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VOORKEUR_OVERUREN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="JAAR_VORIG" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="JAAR_HUIDIG" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="BIJGEWERKT_TOT_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="VERLOF_OPBOUW_BASIS_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_BOVENWETTELIJK_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_ADV_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_COMPENSATIE_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_TEGOED_INHAALUREN_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_TEGOED_VERLOF_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_BIJGEKOCHT_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_AFWIJKEND_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_1_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_2_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_3_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_4_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_OPGEBOUWD_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_OPGENOMEN_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_UITBETAALD_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_SALDO_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPGEBOUWD_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPGENOMEN_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_SALDO_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_BASIS_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_BOVENWETTELIJK_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_ADV_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_COMPENSATIE_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_TEGOED_INHAALUREN_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_TEGOED_VERLOF_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_BIJGEKOCHT_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPBOUW_AFWIJKEND_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_1_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_2_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_3_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_KWARTAAL_4_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ADV_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_OPGENOMEN_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_UITBETAALD_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="TVT_SALDO_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_OPGENOMEN_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="VERLOF_SALDO_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="BESTAND_01" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BESTAND_02" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OPMERKINGEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="INGEVOERD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_COMPUTER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_TIJD" Type="Time" Precision="0" />
+          <Property Name="INGEVOERD_CHECK" Type="Boolean" />
+          <Property Name="GEWIJZIGD_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="GEWIJZIGD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GEWIJZIGD_COMPUTER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GEWIJZIGD_TIJD" Type="Time" Precision="0" />
+          <Property Name="GEWIJZIGD_CHECK" Type="Boolean" />
+          <Property Name="CHECKED" Type="Boolean" />
+          <Property Name="VERWIJDEREN" Type="Boolean" />
+          <Property Name="INDEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="tbl_Medewerkers_Uren">
+          <Key>
+            <PropertyRef Name="VOLGNUMMER" />
+          </Key>
+          <Property Name="VOLGNUMMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MEDEWERKER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MEDEWERKER_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MEDEWERKER_ORGANISATIE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MANAGER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MANAGER_NAAM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="JAAR" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="RECORD_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MEDEWERKER_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DATUM" Type="DateTime" Precision="3" />
+          <Property Name="DAG" Type="DateTime" Precision="3" />
+          <Property Name="PERIODE_WEEK" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="START" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="EINDE" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="UREN" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="OVERUREN_CHECK" Type="Boolean" />
+          <Property Name="UREN_NORMAAL" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="UREN_OVERUREN" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="PROJECT_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PROJECT_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OPMERKINGEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OVERUREN_UITBETALEN" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="HERKOMST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VOLGORDE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="INGEVOERD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_TIJD" Type="Time" Precision="0" />
+          <Property Name="INGEVOERD_CHECK" Type="Boolean" />
+          <Property Name="GEWIJZIGD_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="GEWIJZIGD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GEWIJZIGD_TIJD" Type="Time" Precision="0" />
+          <Property Name="GEWIJZIGD_CHECK" Type="Boolean" />
+          <Property Name="CHECKED" Type="Boolean" />
+          <Property Name="VERWIJDEREN" Type="Boolean" />
+          <Property Name="INDEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="tbl_Medewerkers_Urencodes">
+          <Key>
+            <PropertyRef Name="VOLGNUMMER" />
+          </Key>
+          <Property Name="VOLGNUMMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MEDEWERKER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PROJECT_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PROJECT_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OPMERKINGEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="INGEVOERD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_COMPUTER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_TIJD" Type="Time" Precision="0" />
+          <Property Name="INGEVOERD_CHECK" Type="Boolean" />
+          <Property Name="GEWIJZIGD_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="GEWIJZIGD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GEWIJZIGD_COMPUTER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GEWIJZIGD_TIJD" Type="Time" Precision="0" />
+          <Property Name="GEWIJZIGD_CHECK" Type="Boolean" />
+          <Property Name="CHECKED" Type="Boolean" />
+          <Property Name="VERWIJDEREN" Type="Boolean" />
+          <Property Name="INDEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="tbl_Medewerkers_Weken">
+          <Key>
+            <PropertyRef Name="VOLGNUMMER" />
+          </Key>
+          <Property Name="VOLGNUMMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MEDEWERKER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MEDEWERKER_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MEDEWERKER_ORGANISATIE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WEEK_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WEEK_SOORT" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="WEEK_BUDGET" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="PERIODE_WEEK" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="JAAR" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="TOTAAL_UREN" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="TOTAAL_OVERUREN" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="TOTAAL_UREN_OVERUREN" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="MANAGER_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="MANAGER_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GOEDGEKEURD_CHECK" Type="Boolean" />
+          <Property Name="GOEDGEKEURD_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="GOEDGEKEURD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GOEDGEKEURD_TIJD" Type="Time" Precision="0" />
+          <Property Name="OPMERKINGEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="INGEVOERD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INGEVOERD_TIJD" Type="Time" Precision="0" />
+          <Property Name="GEWIJZIGD_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="GEWIJZIGD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GEWIJZIGD_TIJD" Type="Time" Precision="0" />
+          <Property Name="EMAIL_ONDERWERP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL_DATUM" Type="DateTime" Precision="3" />
+          <Property Name="EMAIL_TIJD" Type="Time" Precision="0" />
+          <Property Name="EMAIL_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL_CHECK" Type="Boolean" />
+          <Property Name="GEWIJZIGD_CHECK" Type="Boolean" />
+          <Property Name="CHECKED" Type="Boolean" />
+          <Property Name="VERWIJDEREN" Type="Boolean" />
+          <Property Name="INDEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Cyclus_DataModelStoreContainer" CdmEntityContainer="Cyclus_DataEntities">
+          <EntitySetMapping Name="tbl_Instellingen_Periodes">
+            <EntityTypeMapping TypeName="Cyclus_DataModel.tbl_Instellingen_Periodes">
+              <MappingFragment StoreEntitySet="tbl_Instellingen_Periodes">
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="OPMERKING" ColumnName="OPMERKING" />
+                <ScalarProperty Name="PROVISIE_PERIODE" ColumnName="PROVISIE_PERIODE" />
+                <ScalarProperty Name="PERIODE_KWARTAAL" ColumnName="PERIODE_KWARTAAL" />
+                <ScalarProperty Name="PERIODE_MAAND" ColumnName="PERIODE_MAAND" />
+                <ScalarProperty Name="PERIODE_WEEK" ColumnName="PERIODE_WEEK" />
+                <ScalarProperty Name="JAAR" ColumnName="JAAR" />
+                <ScalarProperty Name="WEEK_EVEN_ONEVEN" ColumnName="WEEK_EVEN_ONEVEN" />
+                <ScalarProperty Name="WEEKNUMMER" ColumnName="WEEKNUMMER" />
+                <ScalarProperty Name="OMSCHRIJVING" ColumnName="OMSCHRIJVING" />
+                <ScalarProperty Name="WEEK" ColumnName="WEEK" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="FEESTDAG" ColumnName="FEESTDAG" />
+                <ScalarProperty Name="WERKDAG" ColumnName="WERKDAG" />
+                <ScalarProperty Name="DAG" ColumnName="DAG" />
+                <ScalarProperty Name="DATUM" ColumnName="DATUM" />
+                <ScalarProperty Name="VOLGNUMMER" ColumnName="VOLGNUMMER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Medewerkers">
+            <EntityTypeMapping TypeName="Cyclus_DataModel.tbl_Medewerkers">
+              <MappingFragment StoreEntitySet="tbl_Medewerkers">
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="OVERUREN_SCHRIJVEN" ColumnName="OVERUREN_SCHRIJVEN" />
+                <ScalarProperty Name="INLOG_LEVEL" ColumnName="INLOG_LEVEL" />
+                <ScalarProperty Name="INLOG_WACHTWOORD" ColumnName="INLOG_WACHTWOORD" />
+                <ScalarProperty Name="INLOG_GEBRUIKERSNAAM" ColumnName="INLOG_GEBRUIKERSNAAM" />
+                <ScalarProperty Name="INLOG_ACTIEF" ColumnName="INLOG_ACTIEF" />
+                <ScalarProperty Name="INDEX" ColumnName="INDEX" />
+                <ScalarProperty Name="VERWIJDEREN" ColumnName="VERWIJDEREN" />
+                <ScalarProperty Name="ZOEKVELD" ColumnName="ZOEKVELD" />
+                <ScalarProperty Name="CHECKED" ColumnName="CHECKED" />
+                <ScalarProperty Name="VERREKENEN" ColumnName="VERREKENEN" />
+                <ScalarProperty Name="GEWIJZIGD_CHECK" ColumnName="GEWIJZIGD_CHECK" />
+                <ScalarProperty Name="GEWIJZIGD_TIJD" ColumnName="GEWIJZIGD_TIJD" />
+                <ScalarProperty Name="GEWIJZIGD_COMPUTER" ColumnName="GEWIJZIGD_COMPUTER" />
+                <ScalarProperty Name="GEWIJZIGD_NAAM" ColumnName="GEWIJZIGD_NAAM" />
+                <ScalarProperty Name="GEWIJZIGD_DATUM" ColumnName="GEWIJZIGD_DATUM" />
+                <ScalarProperty Name="INGEVOERD_CHECK" ColumnName="INGEVOERD_CHECK" />
+                <ScalarProperty Name="INGEVOERD_TIJD" ColumnName="INGEVOERD_TIJD" />
+                <ScalarProperty Name="INGEVOERD_COMPUTER" ColumnName="INGEVOERD_COMPUTER" />
+                <ScalarProperty Name="INGEVOERD_NAAM" ColumnName="INGEVOERD_NAAM" />
+                <ScalarProperty Name="INGEVOERD_DATUM" ColumnName="INGEVOERD_DATUM" />
+                <ScalarProperty Name="BESTAND_02" ColumnName="BESTAND_02" />
+                <ScalarProperty Name="BESTAND_01" ColumnName="BESTAND_01" />
+                <ScalarProperty Name="MANAGER_ID" ColumnName="MANAGER_ID" />
+                <ScalarProperty Name="MANAGER" ColumnName="MANAGER" />
+                <ScalarProperty Name="AFDELING" ColumnName="AFDELING" />
+                <ScalarProperty Name="CONTRACTUREN_WEEK" ColumnName="CONTRACTUREN_WEEK" />
+                <ScalarProperty Name="FUNCTIENAAM" ColumnName="FUNCTIENAAM" />
+                <ScalarProperty Name="OPMERKINGEN" ColumnName="OPMERKINGEN" />
+                <ScalarProperty Name="GEBOORTEDATUM" ColumnName="GEBOORTEDATUM" />
+                <ScalarProperty Name="E_MAILADRES_PRIVE" ColumnName="E_MAILADRES_PRIVE" />
+                <ScalarProperty Name="E_MAILADRES_ZAKELIJK" ColumnName="E_MAILADRES_ZAKELIJK" />
+                <ScalarProperty Name="GESLACHT" ColumnName="GESLACHT" />
+                <ScalarProperty Name="ACHTERNAAM" ColumnName="ACHTERNAAM" />
+                <ScalarProperty Name="TUSSENVOEGSEL" ColumnName="TUSSENVOEGSEL" />
+                <ScalarProperty Name="VOORNAAM" ColumnName="VOORNAAM" />
+                <ScalarProperty Name="VOORLETTERS" ColumnName="VOORLETTERS" />
+                <ScalarProperty Name="MEDEWERKER_NAAM" ColumnName="MEDEWERKER_NAAM" />
+                <ScalarProperty Name="DATUM_UIT_DIENST" ColumnName="DATUM_UIT_DIENST" />
+                <ScalarProperty Name="DATUM_IN_DIENST" ColumnName="DATUM_IN_DIENST" />
+                <ScalarProperty Name="MEDEWERKER_ORGANISATIE" ColumnName="MEDEWERKER_ORGANISATIE" />
+                <ScalarProperty Name="MEDEWERKER_TYPE" ColumnName="MEDEWERKER_TYPE" />
+                <ScalarProperty Name="MEDEWERKER_STATUS" ColumnName="MEDEWERKER_STATUS" />
+                <ScalarProperty Name="MEDEWERKER_ID" ColumnName="MEDEWERKER_ID" />
+                <ScalarProperty Name="VOLGNUMMER" ColumnName="VOLGNUMMER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Medewerkers_Info">
+            <EntityTypeMapping TypeName="Cyclus_DataModel.tbl_Medewerkers_Info">
+              <MappingFragment StoreEntitySet="tbl_Medewerkers_Info">
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="INDEX" ColumnName="INDEX" />
+                <ScalarProperty Name="VERWIJDEREN" ColumnName="VERWIJDEREN" />
+                <ScalarProperty Name="CHECKED" ColumnName="CHECKED" />
+                <ScalarProperty Name="GEWIJZIGD_CHECK" ColumnName="GEWIJZIGD_CHECK" />
+                <ScalarProperty Name="GEWIJZIGD_TIJD" ColumnName="GEWIJZIGD_TIJD" />
+                <ScalarProperty Name="GEWIJZIGD_COMPUTER" ColumnName="GEWIJZIGD_COMPUTER" />
+                <ScalarProperty Name="GEWIJZIGD_NAAM" ColumnName="GEWIJZIGD_NAAM" />
+                <ScalarProperty Name="GEWIJZIGD_DATUM" ColumnName="GEWIJZIGD_DATUM" />
+                <ScalarProperty Name="INGEVOERD_CHECK" ColumnName="INGEVOERD_CHECK" />
+                <ScalarProperty Name="INGEVOERD_TIJD" ColumnName="INGEVOERD_TIJD" />
+                <ScalarProperty Name="INGEVOERD_COMPUTER" ColumnName="INGEVOERD_COMPUTER" />
+                <ScalarProperty Name="INGEVOERD_NAAM" ColumnName="INGEVOERD_NAAM" />
+                <ScalarProperty Name="INGEVOERD_DATUM" ColumnName="INGEVOERD_DATUM" />
+                <ScalarProperty Name="OPMERKINGEN" ColumnName="OPMERKINGEN" />
+                <ScalarProperty Name="BESTAND_02" ColumnName="BESTAND_02" />
+                <ScalarProperty Name="BESTAND_01" ColumnName="BESTAND_01" />
+                <ScalarProperty Name="VERLOF_SALDO_TOTAAL_HUIDIG_JAAR" ColumnName="VERLOF_SALDO_TOTAAL_HUIDIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPGENOMEN_TOTAAL_HUIDIG_JAAR" ColumnName="VERLOF_OPGENOMEN_TOTAAL_HUIDIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" ColumnName="VERLOF_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" />
+                <ScalarProperty Name="TVT_SALDO_TOTAAL_HUIDIG_JAAR" ColumnName="TVT_SALDO_TOTAAL_HUIDIG_JAAR" />
+                <ScalarProperty Name="TVT_UITBETAALD_TOTAAL_HUIDIG_JAAR" ColumnName="TVT_UITBETAALD_TOTAAL_HUIDIG_JAAR" />
+                <ScalarProperty Name="TVT_OPGENOMEN_TOTAAL_HUIDIG_JAAR" ColumnName="TVT_OPGENOMEN_TOTAAL_HUIDIG_JAAR" />
+                <ScalarProperty Name="TVT_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" ColumnName="TVT_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" />
+                <ScalarProperty Name="ADV_TOTAAL_HUIDIG_JAAR" ColumnName="ADV_TOTAAL_HUIDIG_JAAR" />
+                <ScalarProperty Name="ADV_KWARTAAL_4_HUIDIG_JAAR" ColumnName="ADV_KWARTAAL_4_HUIDIG_JAAR" />
+                <ScalarProperty Name="ADV_KWARTAAL_3_HUIDIG_JAAR" ColumnName="ADV_KWARTAAL_3_HUIDIG_JAAR" />
+                <ScalarProperty Name="ADV_KWARTAAL_2_HUIDIG_JAAR" ColumnName="ADV_KWARTAAL_2_HUIDIG_JAAR" />
+                <ScalarProperty Name="ADV_KWARTAAL_1_HUIDIG_JAAR" ColumnName="ADV_KWARTAAL_1_HUIDIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_AFWIJKEND_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_AFWIJKEND_HUIDIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_BIJGEKOCHT_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_BIJGEKOCHT_HUIDIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_TEGOED_VERLOF_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_TEGOED_VERLOF_HUIDIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_TEGOED_INHAALUREN_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_TEGOED_INHAALUREN_HUIDIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_COMPENSATIE_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_COMPENSATIE_HUIDIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_ADV_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_ADV_HUIDIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_BOVENWETTELIJK_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_BOVENWETTELIJK_HUIDIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_BASIS_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_BASIS_HUIDIG_JAAR" />
+                <ScalarProperty Name="VERLOF_SALDO_TOTAAL_VORIG_JAAR" ColumnName="VERLOF_SALDO_TOTAAL_VORIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPGENOMEN_TOTAAL_VORIG_JAAR" ColumnName="VERLOF_OPGENOMEN_TOTAAL_VORIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPGEBOUWD_TOTAAL_VORIG_JAAR" ColumnName="VERLOF_OPGEBOUWD_TOTAAL_VORIG_JAAR" />
+                <ScalarProperty Name="TVT_SALDO_TOTAAL_VORIG_JAAR" ColumnName="TVT_SALDO_TOTAAL_VORIG_JAAR" />
+                <ScalarProperty Name="TVT_UITBETAALD_TOTAAL_VORIG_JAAR" ColumnName="TVT_UITBETAALD_TOTAAL_VORIG_JAAR" />
+                <ScalarProperty Name="TVT_OPGENOMEN_TOTAAL_VORIG_JAAR" ColumnName="TVT_OPGENOMEN_TOTAAL_VORIG_JAAR" />
+                <ScalarProperty Name="TVT_OPGEBOUWD_TOTAAL_VORIG_JAAR" ColumnName="TVT_OPGEBOUWD_TOTAAL_VORIG_JAAR" />
+                <ScalarProperty Name="ADV_TOTAAL_VORIG_JAAR" ColumnName="ADV_TOTAAL_VORIG_JAAR" />
+                <ScalarProperty Name="ADV_KWARTAAL_4_VORIG_JAAR" ColumnName="ADV_KWARTAAL_4_VORIG_JAAR" />
+                <ScalarProperty Name="ADV_KWARTAAL_3_VORIG_JAAR" ColumnName="ADV_KWARTAAL_3_VORIG_JAAR" />
+                <ScalarProperty Name="ADV_KWARTAAL_2_VORIG_JAAR" ColumnName="ADV_KWARTAAL_2_VORIG_JAAR" />
+                <ScalarProperty Name="ADV_KWARTAAL_1_VORIG_JAAR" ColumnName="ADV_KWARTAAL_1_VORIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_AFWIJKEND_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_AFWIJKEND_VORIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_BIJGEKOCHT_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_BIJGEKOCHT_VORIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_TEGOED_VERLOF_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_TEGOED_VERLOF_VORIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_TEGOED_INHAALUREN_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_TEGOED_INHAALUREN_VORIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_COMPENSATIE_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_COMPENSATIE_VORIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_ADV_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_ADV_VORIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_BOVENWETTELIJK_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_BOVENWETTELIJK_VORIG_JAAR" />
+                <ScalarProperty Name="VERLOF_OPBOUW_BASIS_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_BASIS_VORIG_JAAR" />
+                <ScalarProperty Name="BIJGEWERKT_TOT_DATUM" ColumnName="BIJGEWERKT_TOT_DATUM" />
+                <ScalarProperty Name="JAAR_HUIDIG" ColumnName="JAAR_HUIDIG" />
+                <ScalarProperty Name="JAAR_VORIG" ColumnName="JAAR_VORIG" />
+                <ScalarProperty Name="VOORKEUR_OVERUREN" ColumnName="VOORKEUR_OVERUREN" />
+                <ScalarProperty Name="MANAGER_NAAM" ColumnName="MANAGER_NAAM" />
+                <ScalarProperty Name="FUNCTIENAAM" ColumnName="FUNCTIENAAM" />
+                <ScalarProperty Name="AFDELING" ColumnName="AFDELING" />
+                <ScalarProperty Name="MEDEWERKER_NAAM" ColumnName="MEDEWERKER_NAAM" />
+                <ScalarProperty Name="MEDEWERKER_ID" ColumnName="MEDEWERKER_ID" />
+                <ScalarProperty Name="VOLGNUMMER" ColumnName="VOLGNUMMER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Medewerkers_Uren">
+            <EntityTypeMapping TypeName="Cyclus_DataModel.tbl_Medewerkers_Uren">
+              <MappingFragment StoreEntitySet="tbl_Medewerkers_Uren">
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="INDEX" ColumnName="INDEX" />
+                <ScalarProperty Name="VERWIJDEREN" ColumnName="VERWIJDEREN" />
+                <ScalarProperty Name="CHECKED" ColumnName="CHECKED" />
+                <ScalarProperty Name="GEWIJZIGD_CHECK" ColumnName="GEWIJZIGD_CHECK" />
+                <ScalarProperty Name="GEWIJZIGD_TIJD" ColumnName="GEWIJZIGD_TIJD" />
+                <ScalarProperty Name="GEWIJZIGD_NAAM" ColumnName="GEWIJZIGD_NAAM" />
+                <ScalarProperty Name="GEWIJZIGD_DATUM" ColumnName="GEWIJZIGD_DATUM" />
+                <ScalarProperty Name="INGEVOERD_CHECK" ColumnName="INGEVOERD_CHECK" />
+                <ScalarProperty Name="INGEVOERD_TIJD" ColumnName="INGEVOERD_TIJD" />
+                <ScalarProperty Name="INGEVOERD_NAAM" ColumnName="INGEVOERD_NAAM" />
+                <ScalarProperty Name="INGEVOERD_DATUM" ColumnName="INGEVOERD_DATUM" />
+                <ScalarProperty Name="VOLGORDE" ColumnName="VOLGORDE" />
+                <ScalarProperty Name="HERKOMST" ColumnName="HERKOMST" />
+                <ScalarProperty Name="OVERUREN_UITBETALEN" ColumnName="OVERUREN_UITBETALEN" />
+                <ScalarProperty Name="OPMERKINGEN" ColumnName="OPMERKINGEN" />
+                <ScalarProperty Name="PROJECT_NAAM" ColumnName="PROJECT_NAAM" />
+                <ScalarProperty Name="PROJECT_ID" ColumnName="PROJECT_ID" />
+                <ScalarProperty Name="UREN_OVERUREN" ColumnName="UREN_OVERUREN" />
+                <ScalarProperty Name="UREN_NORMAAL" ColumnName="UREN_NORMAAL" />
+                <ScalarProperty Name="OVERUREN_CHECK" ColumnName="OVERUREN_CHECK" />
+                <ScalarProperty Name="UREN" ColumnName="UREN" />
+                <ScalarProperty Name="EINDE" ColumnName="EINDE" />
+                <ScalarProperty Name="START" ColumnName="START" />
+                <ScalarProperty Name="PERIODE_WEEK" ColumnName="PERIODE_WEEK" />
+                <ScalarProperty Name="DAG" ColumnName="DAG" />
+                <ScalarProperty Name="DATUM" ColumnName="DATUM" />
+                <ScalarProperty Name="MEDEWERKER_TYPE" ColumnName="MEDEWERKER_TYPE" />
+                <ScalarProperty Name="RECORD_STATUS" ColumnName="RECORD_STATUS" />
+                <ScalarProperty Name="JAAR" ColumnName="JAAR" />
+                <ScalarProperty Name="MANAGER_NAAM" ColumnName="MANAGER_NAAM" />
+                <ScalarProperty Name="MANAGER_ID" ColumnName="MANAGER_ID" />
+                <ScalarProperty Name="MEDEWERKER_ORGANISATIE" ColumnName="MEDEWERKER_ORGANISATIE" />
+                <ScalarProperty Name="MEDEWERKER_NAAM" ColumnName="MEDEWERKER_NAAM" />
+                <ScalarProperty Name="MEDEWERKER_ID" ColumnName="MEDEWERKER_ID" />
+                <ScalarProperty Name="VOLGNUMMER" ColumnName="VOLGNUMMER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Medewerkers_Urencodes">
+            <EntityTypeMapping TypeName="Cyclus_DataModel.tbl_Medewerkers_Urencodes">
+              <MappingFragment StoreEntitySet="tbl_Medewerkers_Urencodes">
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="INDEX" ColumnName="INDEX" />
+                <ScalarProperty Name="VERWIJDEREN" ColumnName="VERWIJDEREN" />
+                <ScalarProperty Name="CHECKED" ColumnName="CHECKED" />
+                <ScalarProperty Name="GEWIJZIGD_CHECK" ColumnName="GEWIJZIGD_CHECK" />
+                <ScalarProperty Name="GEWIJZIGD_TIJD" ColumnName="GEWIJZIGD_TIJD" />
+                <ScalarProperty Name="GEWIJZIGD_COMPUTER" ColumnName="GEWIJZIGD_COMPUTER" />
+                <ScalarProperty Name="GEWIJZIGD_NAAM" ColumnName="GEWIJZIGD_NAAM" />
+                <ScalarProperty Name="GEWIJZIGD_DATUM" ColumnName="GEWIJZIGD_DATUM" />
+                <ScalarProperty Name="INGEVOERD_CHECK" ColumnName="INGEVOERD_CHECK" />
+                <ScalarProperty Name="INGEVOERD_TIJD" ColumnName="INGEVOERD_TIJD" />
+                <ScalarProperty Name="INGEVOERD_COMPUTER" ColumnName="INGEVOERD_COMPUTER" />
+                <ScalarProperty Name="INGEVOERD_NAAM" ColumnName="INGEVOERD_NAAM" />
+                <ScalarProperty Name="INGEVOERD_DATUM" ColumnName="INGEVOERD_DATUM" />
+                <ScalarProperty Name="OPMERKINGEN" ColumnName="OPMERKINGEN" />
+                <ScalarProperty Name="PROJECT_NAAM" ColumnName="PROJECT_NAAM" />
+                <ScalarProperty Name="PROJECT_ID" ColumnName="PROJECT_ID" />
+                <ScalarProperty Name="MEDEWERKER_ID" ColumnName="MEDEWERKER_ID" />
+                <ScalarProperty Name="VOLGNUMMER" ColumnName="VOLGNUMMER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Medewerkers_Weken">
+            <EntityTypeMapping TypeName="Cyclus_DataModel.tbl_Medewerkers_Weken">
+              <MappingFragment StoreEntitySet="tbl_Medewerkers_Weken">
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="INDEX" ColumnName="INDEX" />
+                <ScalarProperty Name="VERWIJDEREN" ColumnName="VERWIJDEREN" />
+                <ScalarProperty Name="CHECKED" ColumnName="CHECKED" />
+                <ScalarProperty Name="GEWIJZIGD_CHECK" ColumnName="GEWIJZIGD_CHECK" />
+                <ScalarProperty Name="EMAIL_CHECK" ColumnName="EMAIL_CHECK" />
+                <ScalarProperty Name="EMAIL_NAAM" ColumnName="EMAIL_NAAM" />
+                <ScalarProperty Name="EMAIL_TIJD" ColumnName="EMAIL_TIJD" />
+                <ScalarProperty Name="EMAIL_DATUM" ColumnName="EMAIL_DATUM" />
+                <ScalarProperty Name="EMAIL_ONDERWERP" ColumnName="EMAIL_ONDERWERP" />
+                <ScalarProperty Name="GEWIJZIGD_TIJD" ColumnName="GEWIJZIGD_TIJD" />
+                <ScalarProperty Name="GEWIJZIGD_NAAM" ColumnName="GEWIJZIGD_NAAM" />
+                <ScalarProperty Name="GEWIJZIGD_DATUM" ColumnName="GEWIJZIGD_DATUM" />
+                <ScalarProperty Name="INGEVOERD_TIJD" ColumnName="INGEVOERD_TIJD" />
+                <ScalarProperty Name="INGEVOERD_NAAM" ColumnName="INGEVOERD_NAAM" />
+                <ScalarProperty Name="INGEVOERD_DATUM" ColumnName="INGEVOERD_DATUM" />
+                <ScalarProperty Name="OPMERKINGEN" ColumnName="OPMERKINGEN" />
+                <ScalarProperty Name="GOEDGEKEURD_TIJD" ColumnName="GOEDGEKEURD_TIJD" />
+                <ScalarProperty Name="GOEDGEKEURD_NAAM" ColumnName="GOEDGEKEURD_NAAM" />
+                <ScalarProperty Name="GOEDGEKEURD_DATUM" ColumnName="GOEDGEKEURD_DATUM" />
+                <ScalarProperty Name="GOEDGEKEURD_CHECK" ColumnName="GOEDGEKEURD_CHECK" />
+                <ScalarProperty Name="MANAGER_NAAM" ColumnName="MANAGER_NAAM" />
+                <ScalarProperty Name="MANAGER_ID" ColumnName="MANAGER_ID" />
+                <ScalarProperty Name="TOTAAL_UREN_OVERUREN" ColumnName="TOTAAL_UREN_OVERUREN" />
+                <ScalarProperty Name="TOTAAL_OVERUREN" ColumnName="TOTAAL_OVERUREN" />
+                <ScalarProperty Name="TOTAAL_UREN" ColumnName="TOTAAL_UREN" />
+                <ScalarProperty Name="JAAR" ColumnName="JAAR" />
+                <ScalarProperty Name="PERIODE_WEEK" ColumnName="PERIODE_WEEK" />
+                <ScalarProperty Name="WEEK_BUDGET" ColumnName="WEEK_BUDGET" />
+                <ScalarProperty Name="WEEK_SOORT" ColumnName="WEEK_SOORT" />
+                <ScalarProperty Name="WEEK_STATUS" ColumnName="WEEK_STATUS" />
+                <ScalarProperty Name="MEDEWERKER_ORGANISATIE" ColumnName="MEDEWERKER_ORGANISATIE" />
+                <ScalarProperty Name="MEDEWERKER_NAAM" ColumnName="MEDEWERKER_NAAM" />
+                <ScalarProperty Name="MEDEWERKER_ID" ColumnName="MEDEWERKER_ID" />
+                <ScalarProperty Name="VOLGNUMMER" ColumnName="VOLGNUMMER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

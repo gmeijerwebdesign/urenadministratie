@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Cyclus_DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Instellingen_Periodes">
+    <Key>
+      <PropertyRef Name="VOLGNUMMER" />
+    </Key>
+    <Property Name="VOLGNUMMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DATUM" Type="datetime" />
+    <Property Name="DAG" Type="nvarchar" MaxLength="10" />
+    <Property Name="WERKDAG" Type="bit" />
+    <Property Name="FEESTDAG" Type="bit" />
+    <Property Name="TYPE" Type="nvarchar" MaxLength="255" />
+    <Property Name="WEEK" Type="int" />
+    <Property Name="OMSCHRIJVING" Type="nvarchar" MaxLength="255" />
+    <Property Name="WEEKNUMMER" Type="nvarchar" MaxLength="255" />
+    <Property Name="WEEK_EVEN_ONEVEN" Type="nvarchar" MaxLength="255" />
+    <Property Name="JAAR" Type="nvarchar" MaxLength="4" />
+    <Property Name="PERIODE_WEEK" Type="nvarchar" MaxLength="7" />
+    <Property Name="PERIODE_MAAND" Type="nvarchar" MaxLength="7" />
+    <Property Name="PERIODE_KWARTAAL" Type="nvarchar" MaxLength="20" />
+    <Property Name="PROVISIE_PERIODE" Type="nvarchar" MaxLength="7" />
+    <Property Name="OPMERKING" Type="nvarchar(max)" />
+    <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Medewerkers">
+    <Key>
+      <PropertyRef Name="VOLGNUMMER" />
+    </Key>
+    <Property Name="VOLGNUMMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MEDEWERKER_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="MEDEWERKER_STATUS" Type="nvarchar" MaxLength="50" />
+    <Property Name="MEDEWERKER_TYPE" Type="nvarchar" MaxLength="50" />
+    <Property Name="MEDEWERKER_ORGANISATIE" Type="nvarchar" MaxLength="100" />
+    <Property Name="DATUM_IN_DIENST" Type="datetime" />
+    <Property Name="DATUM_UIT_DIENST" Type="datetime" />
+    <Property Name="MEDEWERKER_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="VOORLETTERS" Type="nvarchar" MaxLength="50" />
+    <Property Name="VOORNAAM" Type="nvarchar" MaxLength="50" />
+    <Property Name="TUSSENVOEGSEL" Type="nvarchar" MaxLength="50" />
+    <Property Name="ACHTERNAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="GESLACHT" Type="nvarchar" MaxLength="50" />
+    <Property Name="E_MAILADRES_ZAKELIJK" Type="nvarchar" MaxLength="100" />
+    <Property Name="E_MAILADRES_PRIVE" Type="nvarchar" MaxLength="100" />
+    <Property Name="GEBOORTEDATUM" Type="datetime" />
+    <Property Name="OPMERKINGEN" Type="nvarchar" MaxLength="255" />
+    <Property Name="FUNCTIENAAM" Type="nvarchar" MaxLength="50" />
+    <Property Name="CONTRACTUREN_WEEK" Type="float" />
+    <Property Name="AFDELING" Type="nvarchar" MaxLength="100" />
+    <Property Name="MANAGER" Type="nvarchar" MaxLength="100" />
+    <Property Name="MANAGER_ID" Type="nvarchar" MaxLength="15" />
+    <Property Name="BESTAND_01" Type="nvarchar" MaxLength="255" />
+    <Property Name="BESTAND_02" Type="nvarchar" MaxLength="255" />
+    <Property Name="INGEVOERD_DATUM" Type="datetime" />
+    <Property Name="INGEVOERD_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="INGEVOERD_COMPUTER" Type="nvarchar" MaxLength="100" />
+    <Property Name="INGEVOERD_TIJD" Type="time" Precision="0" />
+    <Property Name="INGEVOERD_CHECK" Type="bit" />
+    <Property Name="GEWIJZIGD_DATUM" Type="datetime" />
+    <Property Name="GEWIJZIGD_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="GEWIJZIGD_COMPUTER" Type="nvarchar" MaxLength="100" />
+    <Property Name="GEWIJZIGD_TIJD" Type="time" Precision="0" />
+    <Property Name="GEWIJZIGD_CHECK" Type="bit" />
+    <Property Name="VERREKENEN" Type="bit" />
+    <Property Name="CHECKED" Type="bit" />
+    <Property Name="ZOEKVELD" Type="nvarchar" MaxLength="255" />
+    <Property Name="VERWIJDEREN" Type="bit" />
+    <Property Name="INDEX" Type="nvarchar" MaxLength="255" />
+    <Property Name="INLOG_ACTIEF" Type="bit" />
+    <Property Name="INLOG_GEBRUIKERSNAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="INLOG_WACHTWOORD" Type="nvarchar" MaxLength="100" />
+    <Property Name="INLOG_LEVEL" Type="int" />
+    <Property Name="OVERUREN_SCHRIJVEN" Type="bit" />
+    <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Medewerkers_Info">
+    <Key>
+      <PropertyRef Name="VOLGNUMMER" />
+    </Key>
+    <Property Name="VOLGNUMMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MEDEWERKER_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="MEDEWERKER_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="AFDELING" Type="nvarchar" MaxLength="100" />
+    <Property Name="FUNCTIENAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="MANAGER_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="VOORKEUR_OVERUREN" Type="nvarchar" MaxLength="20" />
+    <Property Name="JAAR_VORIG" Type="nvarchar" MaxLength="4" />
+    <Property Name="JAAR_HUIDIG" Type="nvarchar" MaxLength="4" />
+    <Property Name="BIJGEWERKT_TOT_DATUM" Type="datetime" />
+    <Property Name="VERLOF_OPBOUW_BASIS_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_BOVENWETTELIJK_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_ADV_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_COMPENSATIE_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_TEGOED_INHAALUREN_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_TEGOED_VERLOF_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_BIJGEKOCHT_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_AFWIJKEND_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_1_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_2_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_3_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_4_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_OPGEBOUWD_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_OPGENOMEN_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_UITBETAALD_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_SALDO_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPGEBOUWD_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPGENOMEN_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_SALDO_TOTAAL_VORIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_BASIS_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_BOVENWETTELIJK_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_ADV_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_COMPENSATIE_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_TEGOED_INHAALUREN_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_TEGOED_VERLOF_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_BIJGEKOCHT_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_AFWIJKEND_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_1_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_2_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_3_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_4_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_OPGENOMEN_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_UITBETAALD_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_SALDO_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPGENOMEN_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_SALDO_TOTAAL_HUIDIG_JAAR" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="BESTAND_01" Type="nvarchar" MaxLength="255" />
+    <Property Name="BESTAND_02" Type="nvarchar" MaxLength="255" />
+    <Property Name="OPMERKINGEN" Type="nvarchar" MaxLength="255" />
+    <Property Name="INGEVOERD_DATUM" Type="datetime" />
+    <Property Name="INGEVOERD_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="INGEVOERD_COMPUTER" Type="nvarchar" MaxLength="100" />
+    <Property Name="INGEVOERD_TIJD" Type="time" Precision="0" />
+    <Property Name="INGEVOERD_CHECK" Type="bit" />
+    <Property Name="GEWIJZIGD_DATUM" Type="datetime" />
+    <Property Name="GEWIJZIGD_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="GEWIJZIGD_COMPUTER" Type="nvarchar" MaxLength="100" />
+    <Property Name="GEWIJZIGD_TIJD" Type="time" Precision="0" />
+    <Property Name="GEWIJZIGD_CHECK" Type="bit" />
+    <Property Name="CHECKED" Type="bit" />
+    <Property Name="VERWIJDEREN" Type="bit" />
+    <Property Name="INDEX" Type="nvarchar" MaxLength="255" />
+    <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Medewerkers_Uren">
+    <Key>
+      <PropertyRef Name="VOLGNUMMER" />
+    </Key>
+    <Property Name="VOLGNUMMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MEDEWERKER_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="MEDEWERKER_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="MEDEWERKER_ORGANISATIE" Type="nvarchar" MaxLength="100" />
+    <Property Name="MANAGER_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="MANAGER_NAAM" Type="nvarchar" MaxLength="20" />
+    <Property Name="JAAR" Type="nvarchar" MaxLength="4" />
+    <Property Name="RECORD_STATUS" Type="nvarchar" MaxLength="50" />
+    <Property Name="MEDEWERKER_TYPE" Type="nvarchar" MaxLength="50" />
+    <Property Name="DATUM" Type="datetime" />
+    <Property Name="DAG" Type="datetime" />
+    <Property Name="PERIODE_WEEK" Type="nvarchar" MaxLength="7" />
+    <Property Name="START" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="EINDE" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="UREN" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="OVERUREN_CHECK" Type="bit" />
+    <Property Name="UREN_NORMAAL" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="UREN_OVERUREN" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="PROJECT_ID" Type="nvarchar" MaxLength="15" />
+    <Property Name="PROJECT_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="OPMERKINGEN" Type="nvarchar" MaxLength="255" />
+    <Property Name="OVERUREN_UITBETALEN" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="HERKOMST" Type="nvarchar" MaxLength="50" />
+    <Property Name="VOLGORDE" Type="nvarchar" MaxLength="20" />
+    <Property Name="INGEVOERD_DATUM" Type="datetime" />
+    <Property Name="INGEVOERD_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="INGEVOERD_TIJD" Type="time" Precision="0" />
+    <Property Name="INGEVOERD_CHECK" Type="bit" />
+    <Property Name="GEWIJZIGD_DATUM" Type="datetime" />
+    <Property Name="GEWIJZIGD_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="GEWIJZIGD_TIJD" Type="time" Precision="0" />
+    <Property Name="GEWIJZIGD_CHECK" Type="bit" />
+    <Property Name="CHECKED" Type="bit" />
+    <Property Name="VERWIJDEREN" Type="bit" />
+    <Property Name="INDEX" Type="nvarchar" MaxLength="255" />
+    <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Medewerkers_Urencodes">
+    <Key>
+      <PropertyRef Name="VOLGNUMMER" />
+    </Key>
+    <Property Name="VOLGNUMMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MEDEWERKER_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="PROJECT_ID" Type="nvarchar" MaxLength="15" />
+    <Property Name="PROJECT_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="OPMERKINGEN" Type="nvarchar" MaxLength="255" />
+    <Property Name="INGEVOERD_DATUM" Type="datetime" />
+    <Property Name="INGEVOERD_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="INGEVOERD_COMPUTER" Type="nvarchar" MaxLength="100" />
+    <Property Name="INGEVOERD_TIJD" Type="time" Precision="0" />
+    <Property Name="INGEVOERD_CHECK" Type="bit" />
+    <Property Name="GEWIJZIGD_DATUM" Type="datetime" />
+    <Property Name="GEWIJZIGD_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="GEWIJZIGD_COMPUTER" Type="nvarchar" MaxLength="100" />
+    <Property Name="GEWIJZIGD_TIJD" Type="time" Precision="0" />
+    <Property Name="GEWIJZIGD_CHECK" Type="bit" />
+    <Property Name="CHECKED" Type="bit" />
+    <Property Name="VERWIJDEREN" Type="bit" />
+    <Property Name="INDEX" Type="nvarchar" MaxLength="255" />
+    <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Medewerkers_Weken">
+    <Key>
+      <PropertyRef Name="VOLGNUMMER" />
+    </Key>
+    <Property Name="VOLGNUMMER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MEDEWERKER_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="MEDEWERKER_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="MEDEWERKER_ORGANISATIE" Type="nvarchar" MaxLength="100" />
+    <Property Name="WEEK_STATUS" Type="nvarchar" MaxLength="50" />
+    <Property Name="WEEK_SOORT" Type="nvarchar" MaxLength="7" />
+    <Property Name="WEEK_BUDGET" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="PERIODE_WEEK" Type="nvarchar" MaxLength="7" />
+    <Property Name="JAAR" Type="nvarchar" MaxLength="4" />
+    <Property Name="TOTAAL_UREN" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="TOTAAL_OVERUREN" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="TOTAAL_UREN_OVERUREN" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="MANAGER_ID" Type="nvarchar" MaxLength="15" />
+    <Property Name="MANAGER_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="GOEDGEKEURD_CHECK" Type="bit" />
+    <Property Name="GOEDGEKEURD_DATUM" Type="datetime" />
+    <Property Name="GOEDGEKEURD_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="GOEDGEKEURD_TIJD" Type="time" Precision="0" />
+    <Property Name="OPMERKINGEN" Type="nvarchar" MaxLength="255" />
+    <Property Name="INGEVOERD_DATUM" Type="datetime" />
+    <Property Name="INGEVOERD_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="INGEVOERD_TIJD" Type="time" Precision="0" />
+    <Property Name="GEWIJZIGD_DATUM" Type="datetime" />
+    <Property Name="GEWIJZIGD_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="GEWIJZIGD_TIJD" Type="time" Precision="0" />
+    <Property Name="EMAIL_ONDERWERP" Type="nvarchar" MaxLength="100" />
+    <Property Name="EMAIL_DATUM" Type="datetime" />
+    <Property Name="EMAIL_TIJD" Type="time" Precision="0" />
+    <Property Name="EMAIL_NAAM" Type="nvarchar" MaxLength="100" />
+    <Property Name="EMAIL_CHECK" Type="bit" />
+    <Property Name="GEWIJZIGD_CHECK" Type="bit" />
+    <Property Name="CHECKED" Type="bit" />
+    <Property Name="VERWIJDEREN" Type="bit" />
+    <Property Name="INDEX" Type="nvarchar" MaxLength="255" />
+    <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Cyclus_DataModelStoreContainer">
+    <EntitySet Name="tbl_Instellingen_Periodes" EntityType="Self.tbl_Instellingen_Periodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Medewerkers" EntityType="Self.tbl_Medewerkers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Medewerkers_Info" EntityType="Self.tbl_Medewerkers_Info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Medewerkers_Uren" EntityType="Self.tbl_Medewerkers_Uren" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Medewerkers_Urencodes" EntityType="Self.tbl_Medewerkers_Urencodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Medewerkers_Weken" EntityType="Self.tbl_Medewerkers_Weken" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

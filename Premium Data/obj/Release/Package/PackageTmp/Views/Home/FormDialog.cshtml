@@ -1,0 +1,97 @@
+﻿@model Premium_Data.tbl_Medewerkers_Uren
+
+@{
+                /**/
+
+                ViewBag.Title = "EditWeek";
+}
+<link rel="stylesheet/css" href="~/Content/bootstrap.min.css">
+<style>
+    .ibox-content {
+        background-color: #EEEEEE;
+        padding: 20px 50px 100px 50px;
+    }
+</style>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Verwijderen</h4>
+            </div>
+            <div class="modal-body">
+                <form id="form" action="@Url.Action("AddWeek","Home")" method="post" class="wizard-big">
+                    <h1 style="text-align:center">Add Week data</h1>
+                    <br />
+                    <fieldset>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Week *</label>
+
+                                    @Html.EditorFor(model => model.PERIODE_WEEK, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                </div>
+                                <div class="form-group">
+                                    <label>DATUM *</label>
+
+                                    @Html.EditorFor(model => model.DATUM, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                </div>
+                                <div class="form-group">
+                                    <label>Dag *</label>
+                                    <input id="Calculated" name="Calculated" type="text" class="form-control required">
+                                </div>
+                                <div class="form-group">
+                                    <label>Urencode *</label>
+
+                                    @Html.EditorFor(model => model.PROJECT_ID, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Omschrijving *</label>
+
+                                    @Html.EditorFor(model => model.PROJECT_NAAM, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Start *</label>
+
+                                    @Html.EditorFor(model => model.START, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                </div>
+                                <div class="form-group">
+                                    <label>Eind *</label>
+
+                                    @Html.EditorFor(model => model.EINDE, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                </div>
+                                <div class="form-group">
+                                    <label>Uren *</label>
+                                    <input id="TOTAAL_OVERUREN" name="TOTAAL_OVERUREN" type="text" class="form-control required">
+
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <input type="submit" name="Save" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#myModal").modal("show");
+    });
+</script>

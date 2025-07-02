@@ -1,0 +1,302 @@
+﻿@model Premium_Data.tbl_Medewerkers_Info
+
+@{
+                /**/
+
+                ViewBag.Title = "Informatie";
+}
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+    <h2><b>Verlofoverzicht</b></h2>
+
+    <div class="row m-b-lg m-t-lg">
+
+        <div class="col-lg-8">
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Medewerker</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table table-striped">
+
+                        <thead>
+                            <tr>
+                                <th>Nummer</th>
+                                <th></th>
+                                <th>Naam</th>
+                                <th></th>
+                                <th>Manager</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td height="9"><h4>@Model.MEDEWERKER_ID</h4></td>
+                                <td height="9"></td>
+                                <td height="9"><h4>@Model.MEDEWERKER_NAAM</h4></td>
+                                <td height="9"></td>
+                                <td height="9"><h4>@Model.MANAGER_NAAM</h4></td>
+                            </tr>
+                            <tr>
+                                <td height="9"><h4><b>Afdeling</b></h4></td>
+                                <td height="9"></td>
+                                <td height="9"><h4><b>Functie</b></h4></td>
+                                <td height="9"></td>
+                                <td height="9"><h4><b>Overuren</b></h4></td>
+                            </tr>
+                            <tr>
+                                <td height="9"><h4>@Model.AFDELING</h4></td>
+                                <td height="9"></td>
+                                <td height="9"><h4>@Model.FUNCTIENAAM</h4></td>
+                                <td height="9"></td>
+                                <td height="9"><h4>@Model.VOORKEUR_OVERUREN</h4></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Verlofsaldo</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Omschrijving</th>
+                                <th>2021</th>
+                                <th>2022</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td height="10">Opgebouwd Verlof</td>
+                                <td>@Model.VERLOF_OPGEBOUWD_TOTAAL_VORIG_JAAR</td>
+                                <td>@Model.VERLOF_OPGEBOUWD_TOTAAL_HUIDIG_JAAR</td>
+                            </tr>
+
+                            <tr>
+                                <td>Opgenomen Verlof</td>
+                                <td>@Model.VERLOF_OPGENOMEN_TOTAAL_VORIG_JAAR</td>
+                                <td>@Model.VERLOF_OPGENOMEN_TOTAAL_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+                                <td>Inhouding ADV</td>
+                                <td>@Model.ADV_TOTAAL_VORIG_JAAR</td>
+                                <td>@Model.ADV_TOTAAL_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+                                <td><b>Saldo</b></td>
+                                <td><b>@Model.VERLOF_SALDO_TOTAAL_VORIG_JAAR</b></td>
+                                <td><b>@Model.VERLOF_SALDO_TOTAAL_HUIDIG_JAAR</b></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-b-lg m-t-lg">
+
+        <div class="col-lg-4">
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Opgebouwd Verlof</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Omschrijving</th>
+                                <th>2021</th>
+                                <th>2022</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td>Basis Verlof</td>
+                                <td>@Model.VERLOF_OPBOUW_BASIS_VORIG_JAAR</td>
+                                <td>@Model.VERLOF_OPBOUW_BASIS_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+
+                                <td>Bovenwettelijk verlof</td>
+                                <td>@Model.VERLOF_OPBOUW_BOVENWETTELIJK_VORIG_JAAR </td>
+                                <td>@Model.VERLOF_OPBOUW_BOVENWETTELIJK_HUIDIG_JAAR </td>
+                            </tr>
+                            <tr>
+                                <td>ADV-Uren</td>
+                                <td>@Model.VERLOF_OPBOUW_ADV_VORIG_JAAR </td>
+                                <td>@Model.VERLOF_OPBOUW_ADV_HUIDIG_JAAR </td>
+                            </tr>
+                            <tr>
+                                <td>Compensatie wachtdienst </td>
+                                <td>@Model.VERLOF_OPBOUW_COMPENSATIE_VORIG_JAAR</td>
+                                <td>@Model.VERLOF_OPBOUW_COMPENSATIE_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+                                <td>Tegoed inhaaluren vorig jaar </td>
+                                <td>@Model.VERLOF_OPBOUW_TEGOED_INHAALUREN_VORIG_JAAR</td>
+                                <td>@Model.VERLOF_OPBOUW_TEGOED_INHAALUREN_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+                                <td>Tegoed verlof vorig jaar </td>
+                                <td>@Model.VERLOF_OPBOUW_TEGOED_VERLOF_VORIG_JAAR</td>
+                                <td>@Model.VERLOF_OPBOUW_TEGOED_VERLOF_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+                                <td>Bijgekochte uren</td>
+                                <td>@Model.VERLOF_OPBOUW_BIJGEKOCHT_VORIG_JAAR</td>
+                                <td>@Model.VERLOF_OPBOUW_BIJGEKOCHT_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+                                <td>Afwijkende afspraak</td>
+                                <td>@Model.VERLOF_OPBOUW_AFWIJKEND_VORIG_JAAR</td>
+                                <td>@Model.VERLOF_OPBOUW_AFWIJKEND_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+                                <td><b>Totaal Verlof</b></td>
+                                <td><b>@Model.VERLOF_OPGEBOUWD_TOTAAL_VORIG_JAAR</b></td>
+                                <td><b>@Model.VERLOF_OPGEBOUWD_TOTAAL_HUIDIG_JAAR</b></td>
+                            </tr>
+
+
+
+
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Inhouding ADV</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Omschrijving</th>
+                                <th>2021</th>
+                                <th>2022</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td height="10">Kwartaal 1</td>
+                                <td>@Model.ADV_KWARTAAL_1_VORIG_JAAR</td>
+                                <td>@Model.ADV_KWARTAAL_1_HUIDIG_JAAR</td>
+                            </tr>
+
+                            <tr>
+                                <td height="10">Kwartaal 2</td>
+                                <td>@Model.ADV_KWARTAAL_2_VORIG_JAAR</td>
+                                <td>@Model.ADV_KWARTAAL_2_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+                                <td height="10">Kwartaal 3</td>
+                                <td>@Model.ADV_KWARTAAL_3_VORIG_JAAR</td>
+                                <td>@Model.ADV_KWARTAAL_3_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+                                <td height="10">Kwartaal 4</td>
+                                <td>@Model.ADV_KWARTAAL_4_VORIG_JAAR</td>
+                                <td>@Model.ADV_KWARTAAL_4_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+                                <td><b>Saldo</b></td>
+                                <td><b>@Model.ADV_TOTAAL_VORIG_JAAR</b></td>
+                                <td><b>@Model.ADV_TOTAAL_HUIDIG_JAAR</b></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Tijd Voor Tijd</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Omschrijving</th>
+                                <th>2021</th>
+                                <th>2022</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td>Opgebouwd</td>
+                                <td>@Model.TVT_OPGEBOUWD_TOTAAL_VORIG_JAAR</td>
+                                <td>@Model.TVT_OPGEBOUWD_TOTAAL_HUIDIG_JAAR</td>
+                            </tr>
+
+                            <tr>
+                                <td>Opgenomen</td>
+                                <td>@Model.TVT_OPGENOMEN_TOTAAL_VORIG_JAAR</td>
+                                <td>@Model.TVT_OPGENOMEN_TOTAAL_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+                                <td>Uitbetaald</td>
+                                <td>@Model.TVT_UITBETAALD_TOTAAL_VORIG_JAAR</td>
+                                <td>@Model.TVT_UITBETAALD_TOTAAL_HUIDIG_JAAR</td>
+                            </tr>
+                            <tr>
+                                <td><b>Saldo</b></td>
+                                <td>@Model.TVT_SALDO_TOTAAL_VORIG_JAAR</td>
+                                <td>@Model.TVT_SALDO_TOTAAL_HUIDIG_JAAR</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+

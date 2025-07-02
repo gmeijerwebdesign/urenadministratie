@@ -1,0 +1,415 @@
+﻿@model PagedList.IPagedList<Premium_Data.tbl_Medewerkers_Weken>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Overzicht_Weken";
+}
+<style>
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        padding: 2px 8px 2px 8px;
+    }
+    .form-control {
+        height: 33px;
+    }
+    .status {
+        width: 9%;
+        *width: 9%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding: 1px;
+    }
+
+    .PERIODE_MAAND {
+        width: 16%;
+        *width: 16%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        max-height: 7px;
+        padding: 1px;
+    }
+
+    .Werkzaam {
+        width: 14%;
+        *width: 14%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        max-height: 7px;
+        padding: 1px;
+    }
+
+    .jaar {
+        width: 6%;
+        *width: 6%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        max-height: 7px;
+        padding: 1px;
+    }
+
+    .week {
+        width: 7%;
+        *width: 7%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        max-height : 7px;
+        padding: 1px;
+    }
+
+    @@media (min-width: 992px) {
+        .seven-cols .col-md-2, .seven-cols .col-sm-2, .seven-cols .col-lg-2 {
+            width: 28.285714285714285714285714285714%;
+            *width: 28.285714285714285714285714285714%;
+        }
+    }
+
+
+    @@media (min-width: 1200px) {
+        .seven-cols .col-md-2,
+        .seven-cols .col-sm-2,
+        .seven-cols .col-lg-2 {
+            width: 28.285714285714285714285714285714%;
+            *width: 28.285714285714285714285714285714%;
+        }
+    }
+
+    td {
+        align-items: flex-end;
+    }
+
+    .bd b {
+        color: darkgray;
+    }
+</style>
+<div class="ibox-content">
+    @if (ViewBag.changep != null)
+    {
+        <div class="alert alert-success alert-dismissable">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+            @ViewBag.changep
+        </div>
+
+    }
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <h2><b>Overzicht Weken</b></h2>
+    <div class="container-fluid">
+        @using (Html.BeginForm("OverzichtWeken", "Home", FormMethod.Get))
+        {
+            <p>
+                <div class="row seven-cols">
+                    <div class="status">
+                        <div class="bd">
+                            <b>&nbsp&nbsp&nbsp&nbspStatus</b>
+                        </div>
+                        <b>
+
+                            @Html.DropDownList("Status", ViewBag.relativeName as List<SelectListItem>, new { @class = "form-control", id = "status-id" })
+                        </b>
+                    </div>
+
+                    <div class="PERIODE_MAAND">
+                        <div class="bd">
+
+                            <b>&nbsp&nbsp&nbsp&nbspMedewerker</b>
+                        </div>
+                        <b>
+                            @if (ViewBag.Role == 2)
+                            {
+                                @Html.DropDownList("Medewerker", ViewBag.PERIODE_MAAND as List<SelectListItem>, new { @class = "form-control", id = "med" })
+                            }
+                            @if (ViewBag.Role == 1)
+                            {
+                                <input type="text" readonly class="form-control" value="@ViewBag.name" />
+                            }
+                        </b>
+                    </div>
+                    <div class="Werkzaam">
+                        <div class="bd">
+                            <b>&nbsp&nbsp&nbsp&nbspWerkzaam Via</b>
+                        </div>
+                        <b>
+                            @if (ViewBag.Role == 2)
+                            {
+                                @Html.DropDownList("Werkzaam", ViewBag.AM_KLANT_REFERENTIE as List<SelectListItem>, new { @class = "form-control", id = "wer" })
+                            }
+                            @if (ViewBag.Role == 1)
+                            {
+                                <input type="text" readonly class="form-control" value="@ViewBag.organization" />
+                            }
+                        </b>
+                    </div>
+                    <div class="jaar">
+                        <div class="bd">
+                            <b>&nbsp&nbsp&nbsp&nbsp&nbspJaar</b>
+                        </div>
+                        <b>
+                            @Html.DropDownList("Jaar", ViewBag.AM_CATEGORIE as List<SelectListItem>, new { @class = "form-control", id = "jeer" })
+                        </b>
+                    </div>
+
+                    <div class="week">
+                        <div class="bd">
+                            <b>&nbsp&nbsp&nbsp&nbsp&nbspWeek</b>
+                        </div>
+                        <b>
+                            @Html.DropDownList("week", ViewBag.PERIODE_WEEK as List<SelectListItem>, new { @class = "form-control", id = "week" })
+                        </b>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="col-md-2" style="padding-top:20px">
+                        
+                        <a href="@Url.Action("OverzichtWeken","Home")"> <butto class="btn btn-outline btn-success btn-sm"> Filters resetten</butto> </a>
+                    </div>
+                </div>
+            </p>
+        }
+    </div>
+</div>
+<div class="ibox-content" style="margin-top:10px">
+    <div class="table-responsive">
+        <table class="table table-striped">
+
+
+
+            <thead style="color:darkgray; font-size:10pt;">
+                <tr>
+
+                    <th>
+                        <b>Week</b>
+                    </th>
+                    <th>
+                        <b>Status</b>
+                    </th>
+                    <th>
+                        <b>Medewerker</b>
+                    </th>
+                    <th>
+                        <b>Uren</b>
+                    </th>
+                    <th>
+                        <b>Overuren</b>
+                    </th>
+                    <th>
+                        <b>Totaal</b>
+                    </th>
+                    <th>
+                        <b>Rooster</b>
+                    </th>
+                    <th>Opmerkingen</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td style="width:6%">
+                    <b>
+                        @Html.DisplayFor(modelItem => item.PERIODE_WEEK)
+                    </b>
+
+
+
+                </td>
+
+                <td style="width:7%">
+                    @if (item.WEEK_STATUS == "Goedgekeurd")
+                    {
+                        <span class="label label-primary">
+                            @Html.DisplayFor(modelItem => item.WEEK_STATUS)
+                        </span>
+                    }
+                    @if (item.WEEK_STATUS == "Afgekeurd")
+                    {
+                        <span class="label label-danger ">
+                            @Html.DisplayFor(modelItem => item.WEEK_STATUS)
+                        </span>
+                    }
+                    @if (item.WEEK_STATUS == "Verwijderen")
+                    {
+                        <span class="label label-danger ">
+                            @Html.DisplayFor(modelItem => item.WEEK_STATUS)
+                        </span>
+                    }
+                    @if (item.WEEK_STATUS == "Verwerkt")
+                    {
+                        <span class="label">
+                            @Html.DisplayFor(modelItem => item.WEEK_STATUS)
+                        </span>
+                    }
+                    @if (item.WEEK_STATUS == "Ingediend")
+                    {
+                        <span class="label label-warning ">
+                            @Html.DisplayFor(modelItem => item.WEEK_STATUS)
+                        </span>
+                    }
+                    @if (item.WEEK_STATUS == "Invoeren")
+                    {
+                        <span class="label">
+                            @Html.DisplayFor(modelItem => item.WEEK_STATUS)
+                        </span>
+
+
+                    }
+
+                </td>
+                <td style="width:15%">
+                    <b>
+                        @Html.DisplayFor(modelItem => item.MEDEWERKER_NAAM)
+                    </b>
+                </td>
+                <td style="width:5%">
+                    @if (item.TOTAAL_UREN.ToString() == "0,00")
+                    {
+
+                    }
+                    else
+                    {
+                        <b>
+                            @Html.DisplayFor(modelItem => item.TOTAAL_UREN)
+
+                        </b>
+                    }
+                </td>
+                <td style="width:5%">
+                    @if (item.TOTAAL_OVERUREN.ToString() == "0,00")
+                    {
+
+                    }
+                    else
+                    {
+                        <b>
+                            @Html.DisplayFor(modelItem => item.TOTAAL_OVERUREN)
+
+                        </b>
+                    }
+
+                </td>
+                <td style="width:5%">
+                    @if (item.TOTAAL_UREN_OVERUREN.ToString() == "0,00")
+                    {
+
+                    }
+                    else
+                    {
+                        <b>
+                            @Html.DisplayFor(modelItem => item.TOTAAL_UREN_OVERUREN)
+
+                        </b>
+                    }
+                </td>
+                <td style="width:7%" align="left">
+                    <b>
+
+                        @Html.DisplayFor(modelItem => item.WEEK_BUDGET)
+
+                    </b>
+
+                </td>
+                <td style="width:18%">
+                    @Html.DisplayFor(modelItem => item.OPMERKINGEN)
+                </td>
+                <td style="width:7%" height:7px">
+                    @if (item.GEWIJZIGD_CHECK == true)
+                    {
+                        <span class="badge badge-success">Gewijzigd</span>
+                    }
+                </td>
+
+                <td>
+                <a href="@Url.Action("Week","Home", new { index=item.INDEX, Status= ViewBag.status, Medewerker= ViewBag.Medewerker,Jaar=ViewBag.Jaar, week=ViewBag.week, Werkzaam =ViewBag.Werkzaam})">
+
+                    <button type="button" class="btn btn-outline btn-success btn-xs" data-toggle="tooltip" data-placement="bottom" title="Met deze button kunt u de week openen">Openen</button>
+
+                </a>
+
+                    @if (ViewBag.Role == 2 && item.MEDEWERKER_ID != ViewBag.mede)
+                    {
+                        if (item.WEEK_STATUS != "Verwerkt" && item.WEEK_STATUS == "Afgekeurd")
+                        {
+
+                            <a href="@Url.Action("approve","Home",new {id=item.VOLGNUMMER})">
+                                <button class="btn btn-outline btn-primary btn-xs">Goedkeuren</button>
+
+                            </a>
+
+                        }
+
+                        if (item.WEEK_STATUS != "Verwerkt" && item.WEEK_STATUS == "Goedgekeurd")
+                        {
+
+                            <a href="@Url.Action("disapprove", "Home", new { id=item.VOLGNUMMER })">
+                                <button type="button" class="btn btn-outline btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Met deze button kunt u de week afkeuren">Afkeuren</button>
+                            </a>
+
+                        }
+
+                        if (item.WEEK_STATUS == "Ingediend")
+                        {
+                            <a href="@Url.Action("approve","Home",new {id=item.VOLGNUMMER})">
+                                <button class="btn btn-outline btn-primary btn-xs">Goedkeuren</button>
+
+                            </a>
+                            <a href="@Url.Action("disapprove", "Home", new { id=item.VOLGNUMMER })">
+                                <button type="button" class="btn btn-outline btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Met deze button kunt u de week afkeuren">Afkeuren</button>
+                            </a>
+                        }
+
+                        if (item.WEEK_STATUS == "Invoeren")
+                        {
+                            <a href="@Url.Action("Week_Verwijderen", "Home", new { id=item.VOLGNUMMER })">
+                                <button type="button" class="btn btn-outline btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="Met deze button kunt u de week verwijderen">Verwijderen</button>
+                            </a>
+                        }
+                    }
+
+
+
+
+                </td>
+            </tr>
+            }
+
+        </table>
+    </div>
+    <hr>
+    <b> Pagina @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) van @Model.PageCount</b>
+
+    @Html.PagedListPager(Model, page => Url.Action("OverzichtWeken",
+    new { page, sortOrder = ViewBag.CurrentSort,Status= ViewBag.status, Medewerker= ViewBag.Medewerker,Jaar=ViewBag.Jaar, week=ViewBag.week, Werkzaam =ViewBag.Werkzaam, currentFilter =ViewBag.CurrentFilter }))
+</div>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script>
+    $('#med').on('change', function (){ //on change drop down selected value
+        $("form").submit();
+
+    });
+    $('#status-id').on('change', function () { //on change drop down selected value
+        $("form").submit();
+
+    });
+    $('#wer').on('change', function () { //on change drop down selected value
+        $("form").submit();
+
+    });
+    $('#jeer').on('change', function () { //on change drop down selected value
+        $("form").submit();
+
+    });
+    $('#week').on('change', function () { //on change drop down selected value
+        $("form").submit();
+
+    });
+
+</script>

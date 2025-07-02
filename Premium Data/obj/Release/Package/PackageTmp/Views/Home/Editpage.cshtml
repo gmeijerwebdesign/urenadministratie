@@ -1,0 +1,180 @@
+﻿@model Premium_Data.tbl_Medewerkers_Uren
+
+<form method="post" action="@Url.Action("Editpage","Home",new {ind=@ViewBag.index,id=Model.VOLGNUMMER })">
+    <div class="modal-body">
+        <h3><b>Uren Wijzigen</b></h3>
+        <hr>
+        <div class="table-responsive">
+
+            <table>
+                <tr>
+
+                    <th>
+                        <b>
+                            &nbsp&nbsp&nbspDatum
+                        </b>
+                    </th>
+
+
+                    <th>
+                        <b>
+                            &nbsp&nbsp&nbspOmschrijving
+                        </b>
+                    </th>
+                    <th>
+                        <b>
+                            &nbsp&nbsp&nbspStart
+                        </b>
+                    </th>
+                    <th>
+                        <b>
+                            &nbsp&nbsp&nbspEind
+                        </b>
+                    </th>
+                    <th>
+                        <b>
+                            &nbsp&nbsp&nbspUren
+                        </b>
+                    </th>
+                    <th>
+                        <b>
+                            &nbsp&nbsp&nbspUurtype
+                        </b>
+                    </th>
+                    <th>
+                        <b>
+                            &nbsp&nbsp&nbspOpmerking
+                        </b>
+                    </th>
+
+
+
+                </tr>
+
+
+                <tr>
+                    <td style="width:5%;padding-left:1px">
+
+                        @*<input type="text" id="date1" name="datum" required class="form-control" autocomplete="off" value="@Model.DATUM.ToString("dd/MM/yyyy")  />*@
+                        @Html.TextBoxFor(m => m.DATUM, "{0:dd-MM-yyyy}",new {@class="form-control", autocomplete="off", id = "date1" })
+
+                    </td>
+
+                    <td style="width:12%;padding-left:1px">
+                        @if (ViewBag.project_name != null)
+                        {
+                            @Html.DropDownListFor(m=>m.PROJECT_NAAM, ViewBag.project_name as List<SelectListItem>, new { @class = "form-control", @id = "status-id", required = "required" })
+                        }
+                    </td>
+                    <td style="width:4%;padding-left:2px">
+
+                        <input type="text" name="Start" id="start1" class="form-control numerical" readonly  autocomplete="off" value="@Model.START" />
+
+                    </td>
+                    <td style="width:4%;padding-left:1px">
+                        <input type="text" name="Eind" id="end1" class="form-control numerical end" readonly autocomplete="off" value="@Model.EINDE" />
+                    </td>
+                    <td style="width:4%;padding-left:1px">
+                        <input type="text" name="Uren" id="total1" class="form-control numerical" required  autocomplete="off" value="@Model.UREN" />
+                    </td>
+                    <td style="width:5%;padding-left:1px">
+                        @if (ViewBag.OVERUREN == true)
+
+                        {
+                            <select class="form-control" required name="Overuren_Check">
+
+                                <option value="Uren">Uren</option>
+                                <option value="Overuren">Overuren</option>
+
+                            </select>
+                        }
+                        @if (ViewBag.OVERUREN == false)
+
+                        {
+                            <input type="text" name="Overuren_Check" class="form-control numerical" value="Uren" readonly />
+
+                        }
+
+                    </td>
+                    <td style="width:8%;padding-left:1px">
+                        <input type="text" name="Opmerking" class="form-control" autocomplete="off" value="@Model.OPMERKINGEN" />
+                    </td>
+
+
+                </tr>
+
+
+
+
+            </table>
+        </div>
+
+
+
+
+    </div>
+
+    <div class="modal-footer">
+        <div class="pull-right">
+            <input type="submit" class="btn btn-outline btn-success" id="submit" name="Opslaan" value="Opslaan" />
+            <button type="button" data-dismiss="modal" id="remove" class="btn btn-outline btn-success">Annuleren</button>
+        </div>
+    </div>
+</form>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.nl.js"></script>
+<script>
+    $(document).ready(function () {
+        
+
+        
+
+        $("#total1").focusout(function () {
+            var start = $("#total1").val();
+            var value = Number(start);
+            var value2 = start.toString();
+            //Split the input string into two arrays containing integers/decimals
+            var res = value2.split(",");
+
+            //If there is no decimal point or only one decimal place found.
+            if (res.length == 1) {
+                // Set the number to two decimal places
+                value = Number(res[0]);
+                value = value.toFixed(2);
+                value = value.replace(".", ",");
+                value = value.toString();
+            }
+            else {
+                value = start.toString();
+            }
+            // Return updated or original number.
+
+            $("#total1").val(value);
+
+
+        });
+
+        $('#date1').datepicker({
+            format: 'dd-mm-yyyy',
+            startDate: "@ViewBag.mindate",
+            endDate: "@ViewBag.maxdate",
+            language: 'nl',
+            calendarWeeks: true
+
+        });
+        $("#end1").keyup(function () {
+
+
+            var end = $("#end1").val();
+            var end1 = end.replace(",", ".");
+
+            var start = $("#start1").val();
+            var start1 = start.replace(",", ".");
+            var total = end1 - start1;
+            var total1 = total.toString().replace(".", ",");
+            $("#total1").val(total1);
+
+        });
+    });
+</script>

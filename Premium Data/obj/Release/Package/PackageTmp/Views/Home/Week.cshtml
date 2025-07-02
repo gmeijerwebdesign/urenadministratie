@@ -1,0 +1,821 @@
+﻿
+@model PagedList.IPagedList<Premium_Data.tbl_Medewerkers_Uren>
+@using PagedList.Mvc;
+
+@{
+    /**/
+
+    ViewBag.Title = "Week";
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<link href="~/Content/datepicker3.css" rel="stylesheet" />
+<style>
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        padding: 2px 8px 2px 8px;
+    }
+    .modal-dialog {
+        width: 1150px;
+        margin: 30px auto;
+    }
+    td.day{
+        background-color: lightgrey;
+    }
+</style>
+<div class="ibox-content">
+
+    <h2><b>Week</b></h2>
+    <form action="@Url.Action("weeksubmit",new { Med= @ViewBag.med ,id=@ViewBag.id })" id="form">
+    <div class="table-responsive">
+        <table class="table table-striped">
+
+
+
+            <thead style="color:darkgray; font-size:10pt;">
+                <tr>
+
+                    <th>
+                        <b>Week</b>
+                    </th>
+
+                    <th>
+                        <b>Status</b>
+                    </th>
+
+                    <th>
+                        <b>Medewerker</b>
+                    </th>
+
+                    <th>
+                        <b>Uren</b>
+                    </th>
+
+                    <th>
+                        <b>Overuren</b>
+                    </th>
+
+                    <th>
+                        <b>Totaal</b>
+                    </th>
+
+                    <th>
+                        <b>Rooster</b>
+                    </th>
+
+                    <th>Opmerkingen</th>
+
+                    <th></th>
+
+                </tr>
+            </thead>
+
+
+            <tr>
+                <td style="width:6%">
+                    <b>
+                        @ViewBag.Week
+                    </b>
+                </td>
+
+                <td style="width:7%">
+                    <b>
+
+                        @if (ViewBag.Week_Status == "Goedgekeurd")
+                        {
+                            <span class="label label-primary">
+                                @ViewBag.Week_Status
+                            </span>
+                        }
+                        @if (ViewBag.Week_Status == "Afgekeurd")
+                        {
+                            <span class="label label-danger">
+                                @ViewBag.Week_Status
+                            </span>
+                        }
+                        @if (ViewBag.Week_Status == "Verwijderen")
+                        {
+                            <span class="label label-danger">
+                                @ViewBag.Week_Status
+                            </span>
+                        }
+                        @if (ViewBag.Week_Status == "Verwerkt")
+                        {
+                            <span class="label">
+                                @ViewBag.Week_Status
+                            </span>
+                        }
+                        @if (ViewBag.Week_Status == "Invoeren")
+                        {
+                            <span class="label">
+                                @ViewBag.Week_Status
+                            </span>
+                        }
+                        @if (ViewBag.Week_Status == "Ingediend")
+                        {
+                            <span class="label label-warning">
+                                @ViewBag.Week_Status
+                            </span>
+                        }
+                    </b>
+
+                </td>
+                <td style="width:15%">
+                    <b>
+                        @ViewBag.MedeWerker
+                    </b>
+                </td>
+                <td style="width:4%">
+                    <b>
+                        @ViewBag.Uren
+                    </b>
+                </td>
+                <td style="width:4%"align="right">
+
+                    @if (@ViewBag.Overuren.ToString() == "0,00")
+                    {
+
+                    }
+                    else
+                    {
+                        <b>
+                            @ViewBag.Overuren
+
+                        </b>
+                    }
+
+
+
+
+                </td>
+                <td style="width:4%"align="center">
+                    <b>
+                        @ViewBag.totaal
+                    </b>
+                </td>
+                
+                <td style="width:4%" align="right">
+                    <b>
+                        @ViewBag.budget
+                    </b>
+                </td>
+                <td style="width:20%">
+                    
+                    <b>
+                        <input type="text" class="form-control" name="Opmerking" value="@ViewBag.Opmerking" autocomplete="off" style="vertical-align:text-top" />
+                    </b>
+
+                </td>
+
+                <td>
+
+                    @if (ViewBag.Role == 2 && ViewBag.medew != ViewBag.mede2)
+                    {
+
+                        if (ViewBag.Week_Status == "Goedgekeurd")
+                        {
+                            <a href="@Url.Action("disapprove", "Home", new { id = @ViewBag.id })" class="btn btn-outline btn-danger btn-sm">
+                                Week Afkeuren
+                            </a>
+                        }
+
+                        if (ViewBag.Week_Status == "Afgekeurd")
+                        {
+                            <a href="@Url.Action("approve","Home", new { id=@ViewBag.id })" class="btn btn-outline btn-primary btn-sm">
+                                Week Goedkeuren
+                            </a>
+                        }
+
+                        if (ViewBag.Week_Status == "Ingediend")
+                        {
+                            <a href="@Url.Action("approve","Home", new { id=@ViewBag.id })" class="btn btn-outline btn-primary btn-sm">
+                                Week Goedkeuren
+                            </a>
+                            <a href="@Url.Action("disapprove", "Home", new { id = @ViewBag.id })" class="btn btn-outline btn-danger btn-sm">
+                                Week Afkeuren
+                            </a>
+                        }
+                    }
+
+
+
+                    @if (ViewBag.Week_Status == "Invoeren")
+                    {
+                        <button class="btn btn-outline btn-success btn-sm" onclick="return false" data-toggle="modal" data-target="#myModal">Uren Toevoegen</button>
+                    }
+                    @if (ViewBag.Week_Status == "Afgekeurd")
+                    {
+                        <button class="btn btn-outline btn-success btn-sm" onclick="return false" data-toggle="modal" data-target="#myModal">Uren Toevoegen</button>
+                    }
+
+
+                    @if (ViewBag.Role == 1)
+                    {
+                        if (ViewBag.OVERURENs == true)
+                        {
+
+
+                            if (ViewBag.Week_Status == "Invoeren")
+                            {
+                                if (ViewBag.Uren == ViewBag.budget || ViewBag.budget == 0)
+                                {
+                                    <a href="@Url.Action("Indienen", "Home", new { id = ViewBag.id })" class="btn btn-outline btn-warning btn-sm">
+                                        Week Indienen
+                                    </a>
+                                }
+                                else
+                                {
+                                }
+
+                            }
+
+                            if (ViewBag.Week_Status == "Afgekeurd")
+                            {
+                                if (ViewBag.Uren == ViewBag.budget || ViewBag.budget == 0)
+                                {
+                                    <a href="@Url.Action("Indienen", "Home", new { id = ViewBag.id })" class="btn btn-outline btn-warning btn-sm">
+                                        Week Indienen
+                                    </a>
+                                }
+                                else
+                                {
+                                }
+
+                            }
+                        }
+                        if (ViewBag.OVERURENs == false)
+                        {
+
+
+                            if (ViewBag.Week_Status == "Invoeren")
+                            {
+                                if (ViewBag.Uren == ViewBag.budget || ViewBag.budget == 0)
+                                {
+                                    <a href="@Url.Action("Indienen", "Home", new { id = ViewBag.id })" class="btn btn-outline btn-warning btn-sm">
+                                        Week Indienen
+                                    </a>
+                                }
+                                else
+                                {
+                                }
+
+                            }
+
+                            if (ViewBag.Week_Status == "Afgekeurd")
+                            {
+                                if (ViewBag.Uren == ViewBag.budget || ViewBag.budget == 0)
+                                {
+                                    <a href="@Url.Action("Indienen", "Home", new { id = ViewBag.id })" class="btn btn-outline btn-warning btn-sm">
+                                        Week Indienen
+                                    </a>
+                                }
+                                else
+                                {
+                                }
+
+                            }
+                        }
+
+
+                    }
+
+
+                    @if (ViewBag.Role == 2)
+                    {
+
+                       
+                            if (ViewBag.OVERURENs == true)
+                            {
+                                if (ViewBag.Week_Status == "Invoeren")
+
+                                {
+                                    if (ViewBag.Uren == ViewBag.budget || ViewBag.budget == 0)
+
+                                    {
+                                        <a href="@Url.Action("Indienen", "Home", new { id = ViewBag.id })" class="btn btn-outline btn-warning btn-sm">
+                                            Week Indienen
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                    }
+
+                                }
+                                if (ViewBag.Week_Status == "Afgekeurd")
+
+                                {
+                                    if (ViewBag.Uren == ViewBag.budget || ViewBag.budget == 0)
+
+                                    {
+                                        <a href="@Url.Action("Indienen", "Home", new { id = ViewBag.id })" class="btn btn-outline btn-warning btn-sm">
+                                            Week Indienen
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                    }
+
+
+                                }
+
+                            }
+
+                           
+                            if (ViewBag.OVERURENs == false)
+                            {
+                                if (ViewBag.Week_Status == "Invoeren")
+
+                                {
+                                    if (ViewBag.Uren == ViewBag.budget || ViewBag.budget == 0)
+
+                                    {
+                                        <a href="@Url.Action("Indienen", "Home", new { id = ViewBag.id })" class="btn btn-outline btn-warning btn-sm">
+                                            Week Indienen
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                    }
+
+                                }
+                                if (ViewBag.Week_Status == "Afgekeurd")
+
+                                {
+                                    if (ViewBag.Uren == ViewBag.budget || ViewBag.budget == 0)
+
+                                    {
+                                        <a href="@Url.Action("Indienen", "Home", new { id = ViewBag.id })" class="btn btn-outline btn-warning btn-sm">
+                                            Week Indienen
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                    }
+
+
+                                }
+
+
+
+                              
+                                
+                            
+                        }
+
+
+                    }
+
+
+
+
+
+                    <input type="submit" value="Week Afsluiten" class="btn btn-outline btn-success btn-sm" />
+
+
+                </td>
+            </tr>
+
+
+        </table>
+    </div>
+        </form>
+
+</div>
+<div class="ibox-content" style="margin-top:10px">
+    <div class="table-responsive">
+
+        <table class="table table-striped">
+
+                <tr>
+
+
+                    <th style="color:darkgray; font-size:10pt;">
+                        <b>
+                            Datum
+                        </b>
+                    </th>
+                    <th style="color:darkgray; font-size:10pt;">
+                        <b>
+                            Dag
+                        </b>
+                    </th>
+                    <th style="color:darkgray; font-size:10pt;">
+                        <b>
+                            Urencode
+                        </b>
+                    </th>
+                    <th style="color:darkgray; font-size:10pt;">
+                        <b>
+                            Omschrijving
+                        </b>
+                    </th>
+                    <th style="color:darkgray; font-size:10pt;">
+                        <b>
+                            Start
+                        </b>
+                    </th>
+                    <th style="color:darkgray; font-size:10pt;">
+                        <b>
+                            Einde
+                        </b>
+                    </th>
+                    <th style="color:darkgray; font-size:10pt;">
+                        <b>
+                            Uren
+                        </b>
+                    </th>
+                    <th style="color:darkgray; font-size:10pt;">
+                        <b>
+                            Overuren
+                        </b>
+                    </th>
+                    <th style="color:darkgray; font-size:10pt;">
+                        <b>
+                            Opmerking
+                        </b>
+                    </th>
+                    <th>
+
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td style="width:7%">
+                            <b>
+                                @Html.DisplayFor(modelItem => item.DATUM)
+                            </b>
+                        </td>
+                        <td style="width:6%">
+                            <b lang="nl">
+                                @String.Format("{0: dddd}", item.DATUM)
+                            </b>
+                        </td>
+                        <td style="width:5%">
+                            <b>
+                                @Html.DisplayFor(modelItem => item.PROJECT_ID)
+                            </b>
+                        </td>
+                        <td style="width:12%">
+                            <b>
+                                @Html.DisplayFor(modelItem => item.PROJECT_NAAM)
+                            </b>
+                        </td>
+                        <td style="width:6%">
+                            <b>
+                                @Html.DisplayFor(modelItem => item.START)
+                            </b>
+                        </td>
+                        <td style="width:6%">
+                            <b>
+                                @Html.DisplayFor(modelItem => item.EINDE)
+                            </b>
+                        </td>
+                        <td style="width:6%">
+                            @if (item.UREN_NORMAAL.ToString() == "0,00")
+                            {
+
+                            }
+                            else
+                            {
+                                <b>
+                                    @Html.DisplayFor(modelItem => item.UREN_NORMAAL)
+
+                                </b>
+                            }
+                        </td>
+                        <td style="width:6%">
+
+                            @if (item.UREN_OVERUREN.ToString() == "0,00")
+                            {
+
+                            }
+                            else
+                            {
+                                <b>
+                                    @Html.DisplayFor(modelItem => item.UREN_OVERUREN)
+
+                                </b>
+                            }
+
+
+                        </td>
+                        <td style="width:15%">
+
+                            @Html.DisplayFor(modelItem => item.OPMERKINGEN)
+
+                        </td>
+                        <td>
+                            @if (item.GEWIJZIGD_CHECK == true)
+                            {
+                                <span class="badge badge-success">Gewijzigd</span>
+                            }
+                        </td>
+                        <td>
+
+                            @if (ViewBag.Week_Status == "Invoeren" || ViewBag.Week_Status == "Afgekeurd")
+                            {
+                                <button id="form-dialog" class="btn btn-outline btn-success btn-xs search" data-assigned-id="@item.VOLGNUMMER" data-toggle="modal" data-target="#myModal1">Wijzigen</button>
+                                <button id="form-dialog" class="btn btn-outline btn-success btn-xs search2" data-assigned-id="@item.VOLGNUMMER" data-toggle="modal" data-target="#myModal2">Kopiëren</button>
+
+                                <a href="@Url.Action("dltWeek","Home", new { id=item.VOLGNUMMER, weekid=ViewBag.index })" onclick="return confirm(" Wilt u deze week verwijderen?")">
+
+                                    <button type="button" class="btn btn-outline btn-danger btn-xs">Verwijderen</button>
+
+                                </a>
+
+                            }
+
+
+
+
+                        </td>
+                    </tr>
+                }
+
+        </table>
+    </div>
+    <hr>
+    <b> Pagina @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) van @Model.PageCount</b>
+
+    @Html.PagedListPager(Model, page => Url.Action("Week",
+    new { index = ViewBag.index, page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+
+<div class="modal inmodal" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content animated fadeIn">
+            <!-- Modal content-->
+            <div class="modal-content">
+
+
+                
+
+                <form method="post" action="@Url.Action("AddWeek","Home",new {ind=@ViewBag.index })">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <i class="fa fa-clock-o modal-icon"></i>
+                        <h4 class="modal-title">Uren Invoeren</h4>
+                        </div>
+
+                    <div class="modal-body">
+
+
+                        <div class="table-responsive">
+
+                            <table>
+                                <tr>
+
+                                    <th>
+                                        <b>
+                                            &nbsp&nbsp&nbspDatum
+                                        </b>
+                                    </th>
+
+
+                                    <th>
+                                        <b>
+                                            &nbsp&nbsp&nbsp&nbspOmschrijving
+                                        </b>
+                                    </th>
+                                    <th>
+                                        <b>
+                                            &nbsp&nbsp&nbspStart
+                                        </b>
+                                    </th>
+                                    <th>
+                                        <b>
+                                            &nbsp&nbsp&nbspEind
+                                        </b>
+                                    </th>
+                                    <th>
+                                        <b>
+                                            &nbsp&nbsp&nbspUren
+                                        </b>
+                                    </th>
+                                    <th>
+                                        <b>
+                                            &nbsp&nbsp&nbsp&nbspUurtype
+                                        </b>
+                                    </th>
+                                    <th>
+                                        <b>
+                                            &nbsp&nbsp&nbspOpmerking
+                                        </b>
+                                    </th>
+
+
+
+                                </tr>
+
+
+                                <tr>
+                                    <td style="width:5%;padding-left:1px">
+                                        <b>
+                                            <input type="text" id="date" name="datum" required class="form-control" autocomplete="off" />
+                                        </b>
+                                    </td>
+
+                                    <td style="width:12%;padding-left:1px">
+                                        <b>
+                                            @if (ViewBag.project_name != null)
+                                            {
+
+                                                @Html.DropDownList("Project_Name", ViewBag.project_name as List<SelectListItem>, new { @class = "form-control", @id = "status-id", required = "required" })
+                                            }
+                                        </b>
+                                    </td>
+                                    <td style="width:4%;padding-left:2px">
+                                        <b>
+                                            <input type="text" name="Start" id="start" class="form-control numerical" readonly autocomplete="off" />
+                                        </b>
+                                    </td>
+                                    <td style="width:4%;padding-left:1px">
+                                        <b>
+                                            <input type="text" name="Eind" id="end" class="form-control numerical end" readonly autocomplete="off" />
+                                        </b>
+                                    </td>
+                                    <td style="width:4%;padding-left:1px">
+                                        <b>
+                                            <input type="text" name="Uren" id="total" class="form-control numerical" required autocomplete="off" />
+                                        </b>
+                                    </td>
+                                    <td style="width:5%;padding-left:1px">
+                                        <b>
+                                            @if (@ViewBag.OVERURENs == true)
+
+                                            {
+                                                <select class="form-control" required name="Overuren_Check">
+
+                                                    <option value="Uren">Uren</option>
+                                                    <option value="Overuren">Overuren</option>
+
+                                                </select>
+                                            }
+                                            @if (@ViewBag.OVERURENs == false)
+
+                                            {
+                                                <input type="text" name="Overuren_Check" class="form-control numerical" readonly value="Uren" />
+                                            }
+
+                                        </b>
+                                    </td>
+                                    <td style="width:8%;padding-left:1px">
+                                        <input type="text" name="Opmerking" id="opm" class="form-control" autocomplete="off" />
+                                    </td>
+
+
+                                </tr>
+
+
+
+
+                            </table>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="pull-right">
+                            <input type="submit" class="btn btn-outline btn-success" id="submit" name="Toevoegen" value="Toevoegen" />
+                            <button type="button" data-dismiss="modal" class="btn btn-outline btn-success">Annuleren</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+</div>
+    </div>
+<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          
+           
+                <div id="partial"></div>
+           
+           
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            
+           
+                <div id="partial2"></div>
+           
+           
+        </div>
+
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.nl.js"></script>
+
+<script type="text/javascript">
+    $("#remove").click(function () {
+        
+        $("td").removeClass(".btn-info:focus");
+    });
+    
+        $(function () {
+            $('.search').click(function () {
+                var id = $(this).data('assigned-id');
+                var index1 = "@ViewBag.index1";
+                var index2= "@ViewBag.index2";
+                var route = '@Url.Action("Editpage", "Home")?id=' + id + '&index1=' + index1 + '&index2=' + index2;
+                $('#partial').load(route);
+            });
+           
+    });
+     $(function () {
+            $('.search2').click(function () {
+                var id = $(this).data('assigned-id');
+                var index1 = "@ViewBag.index1";
+                var index2= "@ViewBag.index2";
+                var route = '@Url.Action("Kopieren", "Home")?id=' + id + '&index1=' + index1 + '&index2=' + index2;
+                $('#partial2').load(route);
+            });
+           
+        });
+</script>
+<script>
+  
+      
+        $('#date').datepicker({
+            format: 'dd-mm-yyyy',
+            startDate: "@ViewBag.mindate",
+            endDate: "@ViewBag.maxdate",
+            language: 'nl',
+            calendarWeeks: true
+
+        
+    });
+</script>
+<script>
+    $(document).ready(function () {
+
+
+        
+
+        $("#total").focusout(function () {
+            var start = $("#total").val();
+            var value = Number(start);
+            var value2 = start.toString();
+            //Split the input string into two arrays containing integers/decimals
+            var res = value2.split(",");
+
+            //If there is no decimal point or only one decimal place found.
+            if (res.length == 1) {
+                // Set the number to two decimal places
+                value = Number(res[0]);
+                value = value.toFixed(2);
+                value = value.replace(".", ",");
+                value = value.toString();
+            }
+            else {
+                value = start.toString();
+            }
+            // Return updated or original number.
+
+            $("#total").val(value);
+
+
+        });
+
+        $("#end").keyup(function () {
+
+
+            var end = $("#end").val();
+            var end1 = end.replace(",", ".");
+
+            var start = $("#start").val();
+            var start1 = start.replace(",", ".");
+            var total = end1 - start1;
+            var total1 = total.toString().replace(".", ",");
+            $("#total").val(total1);
+
+        });
+
+
+       
+    });
+</script>

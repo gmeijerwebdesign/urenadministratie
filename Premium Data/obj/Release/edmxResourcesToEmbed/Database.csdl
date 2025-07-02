@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Cyclus_DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Cyclus_DataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_Instellingen_Periodes" EntityType="Cyclus_DataModel.tbl_Instellingen_Periodes" />
+    <EntitySet Name="tbl_Medewerkers" EntityType="Cyclus_DataModel.tbl_Medewerkers" />
+    <EntitySet Name="tbl_Medewerkers_Info" EntityType="Cyclus_DataModel.tbl_Medewerkers_Info" />
+    <EntitySet Name="tbl_Medewerkers_Uren" EntityType="Cyclus_DataModel.tbl_Medewerkers_Uren" />
+    <EntitySet Name="tbl_Medewerkers_Urencodes" EntityType="Cyclus_DataModel.tbl_Medewerkers_Urencodes" />
+    <EntitySet Name="tbl_Medewerkers_Weken" EntityType="Cyclus_DataModel.tbl_Medewerkers_Weken" />
+  </EntityContainer>
+  <EntityType Name="tbl_Instellingen_Periodes">
+    <Key>
+      <PropertyRef Name="VOLGNUMMER" />
+    </Key>
+    <Property Name="VOLGNUMMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DATUM" Type="DateTime" Precision="3" />
+    <Property Name="DAG" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="WERKDAG" Type="Boolean" />
+    <Property Name="FEESTDAG" Type="Boolean" />
+    <Property Name="TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WEEK" Type="Int32" />
+    <Property Name="OMSCHRIJVING" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WEEKNUMMER" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WEEK_EVEN_ONEVEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="JAAR" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="PERIODE_WEEK" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="PERIODE_MAAND" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="PERIODE_KWARTAAL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PROVISIE_PERIODE" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="OPMERKING" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="tbl_Medewerkers">
+    <Key>
+      <PropertyRef Name="VOLGNUMMER" />
+    </Key>
+    <Property Name="VOLGNUMMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MEDEWERKER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MEDEWERKER_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MEDEWERKER_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MEDEWERKER_ORGANISATIE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DATUM_IN_DIENST" Type="DateTime" Precision="3" />
+    <Property Name="DATUM_UIT_DIENST" Type="DateTime" Precision="3" />
+    <Property Name="MEDEWERKER_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="VOORLETTERS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VOORNAAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TUSSENVOEGSEL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ACHTERNAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GESLACHT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="E_MAILADRES_ZAKELIJK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="E_MAILADRES_PRIVE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GEBOORTEDATUM" Type="DateTime" Precision="3" />
+    <Property Name="OPMERKINGEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FUNCTIENAAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CONTRACTUREN_WEEK" Type="Double" />
+    <Property Name="AFDELING" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MANAGER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MANAGER_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="BESTAND_01" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BESTAND_02" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="INGEVOERD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_COMPUTER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_TIJD" Type="Time" Precision="0" />
+    <Property Name="INGEVOERD_CHECK" Type="Boolean" />
+    <Property Name="GEWIJZIGD_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="GEWIJZIGD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GEWIJZIGD_COMPUTER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GEWIJZIGD_TIJD" Type="Time" Precision="0" />
+    <Property Name="GEWIJZIGD_CHECK" Type="Boolean" />
+    <Property Name="VERREKENEN" Type="Boolean" />
+    <Property Name="CHECKED" Type="Boolean" />
+    <Property Name="ZOEKVELD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="VERWIJDEREN" Type="Boolean" />
+    <Property Name="INDEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="INLOG_ACTIEF" Type="Boolean" />
+    <Property Name="INLOG_GEBRUIKERSNAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="INLOG_WACHTWOORD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="INLOG_LEVEL" Type="Int32" />
+    <Property Name="OVERUREN_SCHRIJVEN" Type="Boolean" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="tbl_Medewerkers_Info">
+    <Key>
+      <PropertyRef Name="VOLGNUMMER" />
+    </Key>
+    <Property Name="VOLGNUMMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MEDEWERKER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MEDEWERKER_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AFDELING" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FUNCTIENAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MANAGER_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="VOORKEUR_OVERUREN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="JAAR_VORIG" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="JAAR_HUIDIG" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="BIJGEWERKT_TOT_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="VERLOF_OPBOUW_BASIS_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_BOVENWETTELIJK_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_ADV_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_COMPENSATIE_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_TEGOED_INHAALUREN_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_TEGOED_VERLOF_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_BIJGEKOCHT_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_AFWIJKEND_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_1_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_2_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_3_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_4_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_OPGEBOUWD_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_OPGENOMEN_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_UITBETAALD_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_SALDO_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPGEBOUWD_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPGENOMEN_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_SALDO_TOTAAL_VORIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_BASIS_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_BOVENWETTELIJK_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_ADV_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_COMPENSATIE_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_TEGOED_INHAALUREN_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_TEGOED_VERLOF_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_BIJGEKOCHT_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPBOUW_AFWIJKEND_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_1_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_2_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_3_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_KWARTAAL_4_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ADV_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_OPGENOMEN_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_UITBETAALD_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TVT_SALDO_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_OPGENOMEN_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="VERLOF_SALDO_TOTAAL_HUIDIG_JAAR" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="BESTAND_01" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BESTAND_02" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OPMERKINGEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="INGEVOERD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_COMPUTER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_TIJD" Type="Time" Precision="0" />
+    <Property Name="INGEVOERD_CHECK" Type="Boolean" />
+    <Property Name="GEWIJZIGD_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="GEWIJZIGD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GEWIJZIGD_COMPUTER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GEWIJZIGD_TIJD" Type="Time" Precision="0" />
+    <Property Name="GEWIJZIGD_CHECK" Type="Boolean" />
+    <Property Name="CHECKED" Type="Boolean" />
+    <Property Name="VERWIJDEREN" Type="Boolean" />
+    <Property Name="INDEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="tbl_Medewerkers_Uren">
+    <Key>
+      <PropertyRef Name="VOLGNUMMER" />
+    </Key>
+    <Property Name="VOLGNUMMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MEDEWERKER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MEDEWERKER_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MEDEWERKER_ORGANISATIE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MANAGER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MANAGER_NAAM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="JAAR" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="RECORD_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MEDEWERKER_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DATUM" Type="DateTime" Precision="3" />
+    <Property Name="DAG" Type="DateTime" Precision="3" />
+    <Property Name="PERIODE_WEEK" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="START" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="EINDE" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="UREN" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="OVERUREN_CHECK" Type="Boolean" />
+    <Property Name="UREN_NORMAAL" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="UREN_OVERUREN" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="PROJECT_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="PROJECT_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OPMERKINGEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OVERUREN_UITBETALEN" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="HERKOMST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VOLGORDE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="INGEVOERD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_TIJD" Type="Time" Precision="0" />
+    <Property Name="INGEVOERD_CHECK" Type="Boolean" />
+    <Property Name="GEWIJZIGD_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="GEWIJZIGD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GEWIJZIGD_TIJD" Type="Time" Precision="0" />
+    <Property Name="GEWIJZIGD_CHECK" Type="Boolean" />
+    <Property Name="CHECKED" Type="Boolean" />
+    <Property Name="VERWIJDEREN" Type="Boolean" />
+    <Property Name="INDEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="tbl_Medewerkers_Urencodes">
+    <Key>
+      <PropertyRef Name="VOLGNUMMER" />
+    </Key>
+    <Property Name="VOLGNUMMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MEDEWERKER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PROJECT_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="PROJECT_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OPMERKINGEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="INGEVOERD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_COMPUTER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_TIJD" Type="Time" Precision="0" />
+    <Property Name="INGEVOERD_CHECK" Type="Boolean" />
+    <Property Name="GEWIJZIGD_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="GEWIJZIGD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GEWIJZIGD_COMPUTER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GEWIJZIGD_TIJD" Type="Time" Precision="0" />
+    <Property Name="GEWIJZIGD_CHECK" Type="Boolean" />
+    <Property Name="CHECKED" Type="Boolean" />
+    <Property Name="VERWIJDEREN" Type="Boolean" />
+    <Property Name="INDEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="tbl_Medewerkers_Weken">
+    <Key>
+      <PropertyRef Name="VOLGNUMMER" />
+    </Key>
+    <Property Name="VOLGNUMMER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MEDEWERKER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MEDEWERKER_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MEDEWERKER_ORGANISATIE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="WEEK_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WEEK_SOORT" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="WEEK_BUDGET" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="PERIODE_WEEK" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="JAAR" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="TOTAAL_UREN" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TOTAAL_OVERUREN" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TOTAAL_UREN_OVERUREN" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="MANAGER_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="MANAGER_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GOEDGEKEURD_CHECK" Type="Boolean" />
+    <Property Name="GOEDGEKEURD_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="GOEDGEKEURD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GOEDGEKEURD_TIJD" Type="Time" Precision="0" />
+    <Property Name="OPMERKINGEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="INGEVOERD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="INGEVOERD_TIJD" Type="Time" Precision="0" />
+    <Property Name="GEWIJZIGD_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="GEWIJZIGD_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GEWIJZIGD_TIJD" Type="Time" Precision="0" />
+    <Property Name="EMAIL_ONDERWERP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL_DATUM" Type="DateTime" Precision="3" />
+    <Property Name="EMAIL_TIJD" Type="Time" Precision="0" />
+    <Property Name="EMAIL_NAAM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EMAIL_CHECK" Type="Boolean" />
+    <Property Name="GEWIJZIGD_CHECK" Type="Boolean" />
+    <Property Name="CHECKED" Type="Boolean" />
+    <Property Name="VERWIJDEREN" Type="Boolean" />
+    <Property Name="INDEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="nl">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cyclus | Uren-Online</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <link href="~/Content/jquery.steps.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link href="~/Content/datatables.min.css" rel="stylesheet" />
+
+    <link href="~/Content/animate.css" rel="stylesheet" />
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <span class="block m-t-xs">
+                                        <strong class="font-bold">
+                                            @if (ViewBag.employeeName != null)
+                                            {
+
+                                                @ViewBag.employeeName
+
+                                            }
+                                        </strong>
+                                    </span> <span class="text-muted text-xs block">
+                                        @if (ViewBag.organizationName != null)
+                                        {
+
+                                            <b>
+                                                @ViewBag.organizationName
+                                            </b>
+                                        }
+
+                                    </span>
+                                </span>
+                            </a>
+
+
+                        </div>
+                    <li>
+                        <a href="@Url.Action("OverzichtWeken","Home")"><i class="fa fa-calendar"></i> <span class="nav-label">Urenregistratie</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Informatie","Home")"><i class="fa fa-info-circle"></i> <span class="nav-label">Verlofoverzicht</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ChangePassword","Home")"><i class="fa fa-key"></i> <span class="nav-label">Wachtwoord Wijzigen</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Handleiding","Home")"><i class="fa fa-info-circle"></i> <span class="nav-label">Instructie</span></a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("LogOut","Home")"><i class="fa fa-sign-out"></i> <span class="nav-label">Uitloggen</span></a>
+                    </li>
+
+                </ul>
+                    </div>
+            
+
+</nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-success " href="#"><i class="fa fa-bars"></i> </a>
+
+                        
+
+
+
+                    </div>
+                    
+                    <ul class="nav navbar-top-links navbar-right">
+
+
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">
+                                Huidige week :
+                                @if (ViewBag.currentweek != null)
+                                {
+                                    <b>
+                                        @ViewBag.currentweek
+                                    </b>
+                                }
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">
+                                Ingelogd als :
+                                @if (ViewBag.employeeName != null)
+                                {
+                                    <b>
+                                        @ViewBag.employeeName
+                                    </b>
+                                }
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">
+
+
+                                Organisatie :
+                                @if (ViewBag.organizationName != null)
+                                {
+
+                                    <b>
+                                        @ViewBag.organizationName
+                                    </b>
+                                }
+                            </span>
+                        </li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-envelope"></i>  <span class="label label-warning">0</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-messages">
+
+
+                                <li>
+                                    <div class="dropdown-messages-box">
+                                        
+                                        
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="dropdown-messages-box">
+
+
+                                    </div>
+                                </li>
+
+                                <li>
+
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-bell"></i>  <span class="label label-primary">0</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-alerts">
+                                <li>
+                                   
+                                </li>
+                                                                <li>
+                                </li>
+                                
+                                <li>
+
+                                </li>
+                                
+                                <li>
+                                    
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2><b>Cyclus | Uren-Online</b></h2>
+
+                </div>
+                <div class="col-lg-2">
+                    <span>
+                        <img alt="image" src="~/Images/Cyclus Logo.png" width="180" style="padding-top:20px; margin-right:10px"  />
+                    </span>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                @RenderBody()
+            </div>
+            <div class="footer">
+                <div class="pull-right">
+                    <a href="http://www.premiumdata.nl/">Powered by Premium Data</a>
+                </div>
+                <div>
+                    <strong></strong>Copyright Cyclus N.V. &copy; 2021
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Mainly scripts -->
+
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <script src="~/Scripts/jquery.metisMenu.js"></script>
+
+    <script src="~/Scripts/jquery.slimscroll.js"></script>
+
+    <script src="~/Scripts/datatables.min.js"></script>
+    <!-- Custom and plugin javascript -->
+
+    <script src="~/Scripts/inspinia.js"></script>
+
+    <script src="~/Scripts/pace.min.js"></script>
+
+    <!-- Page-Level Scripts -->
+   
+
+</body>
+</html>

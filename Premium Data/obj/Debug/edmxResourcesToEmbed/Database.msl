@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Cyclus_DataModelStoreContainer" CdmEntityContainer="Cyclus_DataEntities">
+    <EntitySetMapping Name="tbl_Instellingen_Periodes">
+      <EntityTypeMapping TypeName="Cyclus_DataModel.tbl_Instellingen_Periodes">
+        <MappingFragment StoreEntitySet="tbl_Instellingen_Periodes">
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+          <ScalarProperty Name="OPMERKING" ColumnName="OPMERKING" />
+          <ScalarProperty Name="PROVISIE_PERIODE" ColumnName="PROVISIE_PERIODE" />
+          <ScalarProperty Name="PERIODE_KWARTAAL" ColumnName="PERIODE_KWARTAAL" />
+          <ScalarProperty Name="PERIODE_MAAND" ColumnName="PERIODE_MAAND" />
+          <ScalarProperty Name="PERIODE_WEEK" ColumnName="PERIODE_WEEK" />
+          <ScalarProperty Name="JAAR" ColumnName="JAAR" />
+          <ScalarProperty Name="WEEK_EVEN_ONEVEN" ColumnName="WEEK_EVEN_ONEVEN" />
+          <ScalarProperty Name="WEEKNUMMER" ColumnName="WEEKNUMMER" />
+          <ScalarProperty Name="OMSCHRIJVING" ColumnName="OMSCHRIJVING" />
+          <ScalarProperty Name="WEEK" ColumnName="WEEK" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="FEESTDAG" ColumnName="FEESTDAG" />
+          <ScalarProperty Name="WERKDAG" ColumnName="WERKDAG" />
+          <ScalarProperty Name="DAG" ColumnName="DAG" />
+          <ScalarProperty Name="DATUM" ColumnName="DATUM" />
+          <ScalarProperty Name="VOLGNUMMER" ColumnName="VOLGNUMMER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Medewerkers">
+      <EntityTypeMapping TypeName="Cyclus_DataModel.tbl_Medewerkers">
+        <MappingFragment StoreEntitySet="tbl_Medewerkers">
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+          <ScalarProperty Name="OVERUREN_SCHRIJVEN" ColumnName="OVERUREN_SCHRIJVEN" />
+          <ScalarProperty Name="INLOG_LEVEL" ColumnName="INLOG_LEVEL" />
+          <ScalarProperty Name="INLOG_WACHTWOORD" ColumnName="INLOG_WACHTWOORD" />
+          <ScalarProperty Name="INLOG_GEBRUIKERSNAAM" ColumnName="INLOG_GEBRUIKERSNAAM" />
+          <ScalarProperty Name="INLOG_ACTIEF" ColumnName="INLOG_ACTIEF" />
+          <ScalarProperty Name="INDEX" ColumnName="INDEX" />
+          <ScalarProperty Name="VERWIJDEREN" ColumnName="VERWIJDEREN" />
+          <ScalarProperty Name="ZOEKVELD" ColumnName="ZOEKVELD" />
+          <ScalarProperty Name="CHECKED" ColumnName="CHECKED" />
+          <ScalarProperty Name="VERREKENEN" ColumnName="VERREKENEN" />
+          <ScalarProperty Name="GEWIJZIGD_CHECK" ColumnName="GEWIJZIGD_CHECK" />
+          <ScalarProperty Name="GEWIJZIGD_TIJD" ColumnName="GEWIJZIGD_TIJD" />
+          <ScalarProperty Name="GEWIJZIGD_COMPUTER" ColumnName="GEWIJZIGD_COMPUTER" />
+          <ScalarProperty Name="GEWIJZIGD_NAAM" ColumnName="GEWIJZIGD_NAAM" />
+          <ScalarProperty Name="GEWIJZIGD_DATUM" ColumnName="GEWIJZIGD_DATUM" />
+          <ScalarProperty Name="INGEVOERD_CHECK" ColumnName="INGEVOERD_CHECK" />
+          <ScalarProperty Name="INGEVOERD_TIJD" ColumnName="INGEVOERD_TIJD" />
+          <ScalarProperty Name="INGEVOERD_COMPUTER" ColumnName="INGEVOERD_COMPUTER" />
+          <ScalarProperty Name="INGEVOERD_NAAM" ColumnName="INGEVOERD_NAAM" />
+          <ScalarProperty Name="INGEVOERD_DATUM" ColumnName="INGEVOERD_DATUM" />
+          <ScalarProperty Name="BESTAND_02" ColumnName="BESTAND_02" />
+          <ScalarProperty Name="BESTAND_01" ColumnName="BESTAND_01" />
+          <ScalarProperty Name="MANAGER_ID" ColumnName="MANAGER_ID" />
+          <ScalarProperty Name="MANAGER" ColumnName="MANAGER" />
+          <ScalarProperty Name="AFDELING" ColumnName="AFDELING" />
+          <ScalarProperty Name="CONTRACTUREN_WEEK" ColumnName="CONTRACTUREN_WEEK" />
+          <ScalarProperty Name="FUNCTIENAAM" ColumnName="FUNCTIENAAM" />
+          <ScalarProperty Name="OPMERKINGEN" ColumnName="OPMERKINGEN" />
+          <ScalarProperty Name="GEBOORTEDATUM" ColumnName="GEBOORTEDATUM" />
+          <ScalarProperty Name="E_MAILADRES_PRIVE" ColumnName="E_MAILADRES_PRIVE" />
+          <ScalarProperty Name="E_MAILADRES_ZAKELIJK" ColumnName="E_MAILADRES_ZAKELIJK" />
+          <ScalarProperty Name="GESLACHT" ColumnName="GESLACHT" />
+          <ScalarProperty Name="ACHTERNAAM" ColumnName="ACHTERNAAM" />
+          <ScalarProperty Name="TUSSENVOEGSEL" ColumnName="TUSSENVOEGSEL" />
+          <ScalarProperty Name="VOORNAAM" ColumnName="VOORNAAM" />
+          <ScalarProperty Name="VOORLETTERS" ColumnName="VOORLETTERS" />
+          <ScalarProperty Name="MEDEWERKER_NAAM" ColumnName="MEDEWERKER_NAAM" />
+          <ScalarProperty Name="DATUM_UIT_DIENST" ColumnName="DATUM_UIT_DIENST" />
+          <ScalarProperty Name="DATUM_IN_DIENST" ColumnName="DATUM_IN_DIENST" />
+          <ScalarProperty Name="MEDEWERKER_ORGANISATIE" ColumnName="MEDEWERKER_ORGANISATIE" />
+          <ScalarProperty Name="MEDEWERKER_TYPE" ColumnName="MEDEWERKER_TYPE" />
+          <ScalarProperty Name="MEDEWERKER_STATUS" ColumnName="MEDEWERKER_STATUS" />
+          <ScalarProperty Name="MEDEWERKER_ID" ColumnName="MEDEWERKER_ID" />
+          <ScalarProperty Name="VOLGNUMMER" ColumnName="VOLGNUMMER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Medewerkers_Info">
+      <EntityTypeMapping TypeName="Cyclus_DataModel.tbl_Medewerkers_Info">
+        <MappingFragment StoreEntitySet="tbl_Medewerkers_Info">
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+          <ScalarProperty Name="INDEX" ColumnName="INDEX" />
+          <ScalarProperty Name="VERWIJDEREN" ColumnName="VERWIJDEREN" />
+          <ScalarProperty Name="CHECKED" ColumnName="CHECKED" />
+          <ScalarProperty Name="GEWIJZIGD_CHECK" ColumnName="GEWIJZIGD_CHECK" />
+          <ScalarProperty Name="GEWIJZIGD_TIJD" ColumnName="GEWIJZIGD_TIJD" />
+          <ScalarProperty Name="GEWIJZIGD_COMPUTER" ColumnName="GEWIJZIGD_COMPUTER" />
+          <ScalarProperty Name="GEWIJZIGD_NAAM" ColumnName="GEWIJZIGD_NAAM" />
+          <ScalarProperty Name="GEWIJZIGD_DATUM" ColumnName="GEWIJZIGD_DATUM" />
+          <ScalarProperty Name="INGEVOERD_CHECK" ColumnName="INGEVOERD_CHECK" />
+          <ScalarProperty Name="INGEVOERD_TIJD" ColumnName="INGEVOERD_TIJD" />
+          <ScalarProperty Name="INGEVOERD_COMPUTER" ColumnName="INGEVOERD_COMPUTER" />
+          <ScalarProperty Name="INGEVOERD_NAAM" ColumnName="INGEVOERD_NAAM" />
+          <ScalarProperty Name="INGEVOERD_DATUM" ColumnName="INGEVOERD_DATUM" />
+          <ScalarProperty Name="OPMERKINGEN" ColumnName="OPMERKINGEN" />
+          <ScalarProperty Name="BESTAND_02" ColumnName="BESTAND_02" />
+          <ScalarProperty Name="BESTAND_01" ColumnName="BESTAND_01" />
+          <ScalarProperty Name="VERLOF_SALDO_TOTAAL_HUIDIG_JAAR" ColumnName="VERLOF_SALDO_TOTAAL_HUIDIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPGENOMEN_TOTAAL_HUIDIG_JAAR" ColumnName="VERLOF_OPGENOMEN_TOTAAL_HUIDIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" ColumnName="VERLOF_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" />
+          <ScalarProperty Name="TVT_SALDO_TOTAAL_HUIDIG_JAAR" ColumnName="TVT_SALDO_TOTAAL_HUIDIG_JAAR" />
+          <ScalarProperty Name="TVT_UITBETAALD_TOTAAL_HUIDIG_JAAR" ColumnName="TVT_UITBETAALD_TOTAAL_HUIDIG_JAAR" />
+          <ScalarProperty Name="TVT_OPGENOMEN_TOTAAL_HUIDIG_JAAR" ColumnName="TVT_OPGENOMEN_TOTAAL_HUIDIG_JAAR" />
+          <ScalarProperty Name="TVT_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" ColumnName="TVT_OPGEBOUWD_TOTAAL_HUIDIG_JAAR" />
+          <ScalarProperty Name="ADV_TOTAAL_HUIDIG_JAAR" ColumnName="ADV_TOTAAL_HUIDIG_JAAR" />
+          <ScalarProperty Name="ADV_KWARTAAL_4_HUIDIG_JAAR" ColumnName="ADV_KWARTAAL_4_HUIDIG_JAAR" />
+          <ScalarProperty Name="ADV_KWARTAAL_3_HUIDIG_JAAR" ColumnName="ADV_KWARTAAL_3_HUIDIG_JAAR" />
+          <ScalarProperty Name="ADV_KWARTAAL_2_HUIDIG_JAAR" ColumnName="ADV_KWARTAAL_2_HUIDIG_JAAR" />
+          <ScalarProperty Name="ADV_KWARTAAL_1_HUIDIG_JAAR" ColumnName="ADV_KWARTAAL_1_HUIDIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_AFWIJKEND_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_AFWIJKEND_HUIDIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_BIJGEKOCHT_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_BIJGEKOCHT_HUIDIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_TEGOED_VERLOF_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_TEGOED_VERLOF_HUIDIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_TEGOED_INHAALUREN_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_TEGOED_INHAALUREN_HUIDIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_COMPENSATIE_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_COMPENSATIE_HUIDIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_ADV_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_ADV_HUIDIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_BOVENWETTELIJK_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_BOVENWETTELIJK_HUIDIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_BASIS_HUIDIG_JAAR" ColumnName="VERLOF_OPBOUW_BASIS_HUIDIG_JAAR" />
+          <ScalarProperty Name="VERLOF_SALDO_TOTAAL_VORIG_JAAR" ColumnName="VERLOF_SALDO_TOTAAL_VORIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPGENOMEN_TOTAAL_VORIG_JAAR" ColumnName="VERLOF_OPGENOMEN_TOTAAL_VORIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPGEBOUWD_TOTAAL_VORIG_JAAR" ColumnName="VERLOF_OPGEBOUWD_TOTAAL_VORIG_JAAR" />
+          <ScalarProperty Name="TVT_SALDO_TOTAAL_VORIG_JAAR" ColumnName="TVT_SALDO_TOTAAL_VORIG_JAAR" />
+          <ScalarProperty Name="TVT_UITBETAALD_TOTAAL_VORIG_JAAR" ColumnName="TVT_UITBETAALD_TOTAAL_VORIG_JAAR" />
+          <ScalarProperty Name="TVT_OPGENOMEN_TOTAAL_VORIG_JAAR" ColumnName="TVT_OPGENOMEN_TOTAAL_VORIG_JAAR" />
+          <ScalarProperty Name="TVT_OPGEBOUWD_TOTAAL_VORIG_JAAR" ColumnName="TVT_OPGEBOUWD_TOTAAL_VORIG_JAAR" />
+          <ScalarProperty Name="ADV_TOTAAL_VORIG_JAAR" ColumnName="ADV_TOTAAL_VORIG_JAAR" />
+          <ScalarProperty Name="ADV_KWARTAAL_4_VORIG_JAAR" ColumnName="ADV_KWARTAAL_4_VORIG_JAAR" />
+          <ScalarProperty Name="ADV_KWARTAAL_3_VORIG_JAAR" ColumnName="ADV_KWARTAAL_3_VORIG_JAAR" />
+          <ScalarProperty Name="ADV_KWARTAAL_2_VORIG_JAAR" ColumnName="ADV_KWARTAAL_2_VORIG_JAAR" />
+          <ScalarProperty Name="ADV_KWARTAAL_1_VORIG_JAAR" ColumnName="ADV_KWARTAAL_1_VORIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_AFWIJKEND_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_AFWIJKEND_VORIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_BIJGEKOCHT_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_BIJGEKOCHT_VORIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_TEGOED_VERLOF_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_TEGOED_VERLOF_VORIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_TEGOED_INHAALUREN_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_TEGOED_INHAALUREN_VORIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_COMPENSATIE_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_COMPENSATIE_VORIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_ADV_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_ADV_VORIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_BOVENWETTELIJK_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_BOVENWETTELIJK_VORIG_JAAR" />
+          <ScalarProperty Name="VERLOF_OPBOUW_BASIS_VORIG_JAAR" ColumnName="VERLOF_OPBOUW_BASIS_VORIG_JAAR" />
+          <ScalarProperty Name="BIJGEWERKT_TOT_DATUM" ColumnName="BIJGEWERKT_TOT_DATUM" />
+          <ScalarProperty Name="JAAR_HUIDIG" ColumnName="JAAR_HUIDIG" />
+          <ScalarProperty Name="JAAR_VORIG" ColumnName="JAAR_VORIG" />
+          <ScalarProperty Name="VOORKEUR_OVERUREN" ColumnName="VOORKEUR_OVERUREN" />
+          <ScalarProperty Name="MANAGER_NAAM" ColumnName="MANAGER_NAAM" />
+          <ScalarProperty Name="FUNCTIENAAM" ColumnName="FUNCTIENAAM" />
+          <ScalarProperty Name="AFDELING" ColumnName="AFDELING" />
+          <ScalarProperty Name="MEDEWERKER_NAAM" ColumnName="MEDEWERKER_NAAM" />
+          <ScalarProperty Name="MEDEWERKER_ID" ColumnName="MEDEWERKER_ID" />
+          <ScalarProperty Name="VOLGNUMMER" ColumnName="VOLGNUMMER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Medewerkers_Uren">
+      <EntityTypeMapping TypeName="Cyclus_DataModel.tbl_Medewerkers_Uren">
+        <MappingFragment StoreEntitySet="tbl_Medewerkers_Uren">
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+          <ScalarProperty Name="INDEX" ColumnName="INDEX" />
+          <ScalarProperty Name="VERWIJDEREN" ColumnName="VERWIJDEREN" />
+          <ScalarProperty Name="CHECKED" ColumnName="CHECKED" />
+          <ScalarProperty Name="GEWIJZIGD_CHECK" ColumnName="GEWIJZIGD_CHECK" />
+          <ScalarProperty Name="GEWIJZIGD_TIJD" ColumnName="GEWIJZIGD_TIJD" />
+          <ScalarProperty Name="GEWIJZIGD_NAAM" ColumnName="GEWIJZIGD_NAAM" />
+          <ScalarProperty Name="GEWIJZIGD_DATUM" ColumnName="GEWIJZIGD_DATUM" />
+          <ScalarProperty Name="INGEVOERD_CHECK" ColumnName="INGEVOERD_CHECK" />
+          <ScalarProperty Name="INGEVOERD_TIJD" ColumnName="INGEVOERD_TIJD" />
+          <ScalarProperty Name="INGEVOERD_NAAM" ColumnName="INGEVOERD_NAAM" />
+          <ScalarProperty Name="INGEVOERD_DATUM" ColumnName="INGEVOERD_DATUM" />
+          <ScalarProperty Name="VOLGORDE" ColumnName="VOLGORDE" />
+          <ScalarProperty Name="HERKOMST" ColumnName="HERKOMST" />
+          <ScalarProperty Name="OVERUREN_UITBETALEN" ColumnName="OVERUREN_UITBETALEN" />
+          <ScalarProperty Name="OPMERKINGEN" ColumnName="OPMERKINGEN" />
+          <ScalarProperty Name="PROJECT_NAAM" ColumnName="PROJECT_NAAM" />
+          <ScalarProperty Name="PROJECT_ID" ColumnName="PROJECT_ID" />
+          <ScalarProperty Name="UREN_OVERUREN" ColumnName="UREN_OVERUREN" />
+          <ScalarProperty Name="UREN_NORMAAL" ColumnName="UREN_NORMAAL" />
+          <ScalarProperty Name="OVERUREN_CHECK" ColumnName="OVERUREN_CHECK" />
+          <ScalarProperty Name="UREN" ColumnName="UREN" />
+          <ScalarProperty Name="EINDE" ColumnName="EINDE" />
+          <ScalarProperty Name="START" ColumnName="START" />
+          <ScalarProperty Name="PERIODE_WEEK" ColumnName="PERIODE_WEEK" />
+          <ScalarProperty Name="DAG" ColumnName="DAG" />
+          <ScalarProperty Name="DATUM" ColumnName="DATUM" />
+          <ScalarProperty Name="MEDEWERKER_TYPE" ColumnName="MEDEWERKER_TYPE" />
+          <ScalarProperty Name="RECORD_STATUS" ColumnName="RECORD_STATUS" />
+          <ScalarProperty Name="JAAR" ColumnName="JAAR" />
+          <ScalarProperty Name="MANAGER_NAAM" ColumnName="MANAGER_NAAM" />
+          <ScalarProperty Name="MANAGER_ID" ColumnName="MANAGER_ID" />
+          <ScalarProperty Name="MEDEWERKER_ORGANISATIE" ColumnName="MEDEWERKER_ORGANISATIE" />
+          <ScalarProperty Name="MEDEWERKER_NAAM" ColumnName="MEDEWERKER_NAAM" />
+          <ScalarProperty Name="MEDEWERKER_ID" ColumnName="MEDEWERKER_ID" />
+          <ScalarProperty Name="VOLGNUMMER" ColumnName="VOLGNUMMER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Medewerkers_Urencodes">
+      <EntityTypeMapping TypeName="Cyclus_DataModel.tbl_Medewerkers_Urencodes">
+        <MappingFragment StoreEntitySet="tbl_Medewerkers_Urencodes">
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+          <ScalarProperty Name="INDEX" ColumnName="INDEX" />
+          <ScalarProperty Name="VERWIJDEREN" ColumnName="VERWIJDEREN" />
+          <ScalarProperty Name="CHECKED" ColumnName="CHECKED" />
+          <ScalarProperty Name="GEWIJZIGD_CHECK" ColumnName="GEWIJZIGD_CHECK" />
+          <ScalarProperty Name="GEWIJZIGD_TIJD" ColumnName="GEWIJZIGD_TIJD" />
+          <ScalarProperty Name="GEWIJZIGD_COMPUTER" ColumnName="GEWIJZIGD_COMPUTER" />
+          <ScalarProperty Name="GEWIJZIGD_NAAM" ColumnName="GEWIJZIGD_NAAM" />
+          <ScalarProperty Name="GEWIJZIGD_DATUM" ColumnName="GEWIJZIGD_DATUM" />
+          <ScalarProperty Name="INGEVOERD_CHECK" ColumnName="INGEVOERD_CHECK" />
+          <ScalarProperty Name="INGEVOERD_TIJD" ColumnName="INGEVOERD_TIJD" />
+          <ScalarProperty Name="INGEVOERD_COMPUTER" ColumnName="INGEVOERD_COMPUTER" />
+          <ScalarProperty Name="INGEVOERD_NAAM" ColumnName="INGEVOERD_NAAM" />
+          <ScalarProperty Name="INGEVOERD_DATUM" ColumnName="INGEVOERD_DATUM" />
+          <ScalarProperty Name="OPMERKINGEN" ColumnName="OPMERKINGEN" />
+          <ScalarProperty Name="PROJECT_NAAM" ColumnName="PROJECT_NAAM" />
+          <ScalarProperty Name="PROJECT_ID" ColumnName="PROJECT_ID" />
+          <ScalarProperty Name="MEDEWERKER_ID" ColumnName="MEDEWERKER_ID" />
+          <ScalarProperty Name="VOLGNUMMER" ColumnName="VOLGNUMMER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Medewerkers_Weken">
+      <EntityTypeMapping TypeName="Cyclus_DataModel.tbl_Medewerkers_Weken">
+        <MappingFragment StoreEntitySet="tbl_Medewerkers_Weken">
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+          <ScalarProperty Name="INDEX" ColumnName="INDEX" />
+          <ScalarProperty Name="VERWIJDEREN" ColumnName="VERWIJDEREN" />
+          <ScalarProperty Name="CHECKED" ColumnName="CHECKED" />
+          <ScalarProperty Name="GEWIJZIGD_CHECK" ColumnName="GEWIJZIGD_CHECK" />
+          <ScalarProperty Name="EMAIL_CHECK" ColumnName="EMAIL_CHECK" />
+          <ScalarProperty Name="EMAIL_NAAM" ColumnName="EMAIL_NAAM" />
+          <ScalarProperty Name="EMAIL_TIJD" ColumnName="EMAIL_TIJD" />
+          <ScalarProperty Name="EMAIL_DATUM" ColumnName="EMAIL_DATUM" />
+          <ScalarProperty Name="EMAIL_ONDERWERP" ColumnName="EMAIL_ONDERWERP" />
+          <ScalarProperty Name="GEWIJZIGD_TIJD" ColumnName="GEWIJZIGD_TIJD" />
+          <ScalarProperty Name="GEWIJZIGD_NAAM" ColumnName="GEWIJZIGD_NAAM" />
+          <ScalarProperty Name="GEWIJZIGD_DATUM" ColumnName="GEWIJZIGD_DATUM" />
+          <ScalarProperty Name="INGEVOERD_TIJD" ColumnName="INGEVOERD_TIJD" />
+          <ScalarProperty Name="INGEVOERD_NAAM" ColumnName="INGEVOERD_NAAM" />
+          <ScalarProperty Name="INGEVOERD_DATUM" ColumnName="INGEVOERD_DATUM" />
+          <ScalarProperty Name="OPMERKINGEN" ColumnName="OPMERKINGEN" />
+          <ScalarProperty Name="GOEDGEKEURD_TIJD" ColumnName="GOEDGEKEURD_TIJD" />
+          <ScalarProperty Name="GOEDGEKEURD_NAAM" ColumnName="GOEDGEKEURD_NAAM" />
+          <ScalarProperty Name="GOEDGEKEURD_DATUM" ColumnName="GOEDGEKEURD_DATUM" />
+          <ScalarProperty Name="GOEDGEKEURD_CHECK" ColumnName="GOEDGEKEURD_CHECK" />
+          <ScalarProperty Name="MANAGER_NAAM" ColumnName="MANAGER_NAAM" />
+          <ScalarProperty Name="MANAGER_ID" ColumnName="MANAGER_ID" />
+          <ScalarProperty Name="TOTAAL_UREN_OVERUREN" ColumnName="TOTAAL_UREN_OVERUREN" />
+          <ScalarProperty Name="TOTAAL_OVERUREN" ColumnName="TOTAAL_OVERUREN" />
+          <ScalarProperty Name="TOTAAL_UREN" ColumnName="TOTAAL_UREN" />
+          <ScalarProperty Name="JAAR" ColumnName="JAAR" />
+          <ScalarProperty Name="PERIODE_WEEK" ColumnName="PERIODE_WEEK" />
+          <ScalarProperty Name="WEEK_BUDGET" ColumnName="WEEK_BUDGET" />
+          <ScalarProperty Name="WEEK_SOORT" ColumnName="WEEK_SOORT" />
+          <ScalarProperty Name="WEEK_STATUS" ColumnName="WEEK_STATUS" />
+          <ScalarProperty Name="MEDEWERKER_ORGANISATIE" ColumnName="MEDEWERKER_ORGANISATIE" />
+          <ScalarProperty Name="MEDEWERKER_NAAM" ColumnName="MEDEWERKER_NAAM" />
+          <ScalarProperty Name="MEDEWERKER_ID" ColumnName="MEDEWERKER_ID" />
+          <ScalarProperty Name="VOLGNUMMER" ColumnName="VOLGNUMMER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
