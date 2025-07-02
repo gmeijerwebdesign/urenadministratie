@@ -1,0 +1,30 @@
+# Visual Studio folders
+.vs/
+.vscode/
+
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Packages
+*.nupkg
+packages/
+
+# Logs
+*.log
+
+# React Native node_modules
+node_modules/
+
+# Environment variables
+.env
+
+# Other OS files
+.DS_Store
+Thumbs.db
